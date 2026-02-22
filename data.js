@@ -9,7 +9,7 @@ const componentsData = [
     { 
         id: "angle-clip",
         title: "Angle Clip",
-        thumbnail: "Assets/Components/Angle Clip/thumbnail.jpg",
+        thumbnail: "Assets/Components/Angle Clip/thumbnail.JPG",
 
         images: [
             "Assets/Components/Angle Clip/Angle Clip 1.JPG",
