@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAD Assemblies</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="global.css">
+
+    <!-- Assemblies CSS -->
+    <link rel="stylesheet" href="assemblies.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>CAD Assemblies</h1>
+            <p>Click on any assembly to view its details</p>
+        </div>
+
+        <div class="items-grid" id="assemblies-grid"></div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <div class="detail-modal" id="detail-modal">
+        <div class="detail-modal-content" id="detail-modal-content"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="load-partials.js"></script>
+    <script src="data.js"></script> <!-- ✅ CONNECTED -->
+    <script src="assemblies.js"></script>
+    <script src="com_ass.js"></script>
+
+</body>
+</html>

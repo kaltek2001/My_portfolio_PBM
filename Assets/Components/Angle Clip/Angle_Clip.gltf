@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.5741466601128129,
+                -0.475116758018064,
+                -0.6667980795800976,
+                0.0,
+                -0.4704377297293697,
+                0.47511675801807,
+                -0.7436076981160664,
+                0.0,
+                0.6701074205889519,
+                0.7406268510530812,
+                0.04927385078130608,
+                0.0,
+                0.47785431964072383,
+                0.4668623198797228,
+                0.030709632569966026,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Angle Clip"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.15170625318834088,
+                "ymag": 0.11722755928189978,
+                "zfar": 0.8050392810329436,
+                "znear": 0.5323463812077656
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 11808,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                4923
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4924,
+            "type": "VEC3",
+            "min": [
+                -3.469446951953614e-18,
+                -0.036242395639419556,
+                -0.053975000977516174
+            ],
+            "max": [
+                0.12042776495218277,
+                0.04678453132510185,
+                0.053975000977516174
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4924,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "mattesteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.38891028388129995,
+                    0.3488648621678924,
+                    0.31118052762160187,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.5
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 47232,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 47232,
+            "byteLength": 59088,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 106320,
+            "byteLength": 59088,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Angle Clip.bin",
+            "byteLength": 165408
+        }
+    ]
+}

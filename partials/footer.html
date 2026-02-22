@@ -1,0 +1,67 @@
+<!-- ===== PROFESSIONAL FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+        <!-- Copyright & Brand -->
+        <div class="footer-copyright">
+            <p class="copyright-text">
+                &copy; <span id="current-year"></span> 
+                <span class="brand-name">Prashant Budha Magar</span>
+                <span class="legal-separator">|</span>
+                <span class="rights-reserved">All rights reserved</span>
+            </p>
+        </div>
+
+        <!-- Essential Links (styled like navigation) -->
+        <div class="footer-links">
+            <!-- Page links -->
+            <a href="privacy.html" class="footer-link" aria-label="Privacy Policy">Privacy</a>
+            <span class="link-separator" aria-hidden="true">•</span>
+            <a href="terms.html" class="footer-link" aria-label="Terms of Use">Terms</a>
+            
+            <!-- Contact & Social (with icons) -->
+            <a href="mailto:bahadurprashant2001@gmail.com" class="footer-link email-link" aria-label="Email me">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span class="link-text">Email</span>
+            </a>
+            <a href="https://linkedin.com/in/tyler-barnes-a60401324" target="_blank" rel="noopener noreferrer me" class="footer-link" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                <span class="link-text">LinkedIn</span>
+            </a>
+            <a href="https://github.com/tybarnes109" target="_blank" rel="noopener noreferrer me" class="footer-link" aria-label="GitHub Profile">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span class="link-text">GitHub</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button (UX enhancement) -->
+    <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</footer>
+
+<!-- Minimal JavaScript for dynamic year and back-to-top visibility -->
+<script>
+    (function() {
+        'use strict';
+        // Set current year
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+        // Back-to-top button visibility and smooth scroll
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    })();
+</script>

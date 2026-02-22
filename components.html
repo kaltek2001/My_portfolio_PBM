@@ -1,0 +1,175 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>CAD Components | Engineering Portfolio</title>
+    <meta name="description" content="Professional CAD components including 3D models, engineering drawings, and mechanical visualizations.">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CAD Components | Engineering Portfolio">
+    <meta property="og:description" content="Explore professional mechanical components and 3D models.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="Assets/brand/social-preview.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/components.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Assets/brand/favicon.ico">
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="components.css">
+
+    <!-- Model Viewer Script with Fallback -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <noscript>
+        <style>
+            #detail-modal { display: none; }
+            .no-script-warning {
+                display: block;
+                text-align: center;
+                padding: 20px;
+                background: #e11d48;
+                color: white;
+                margin: 20px;
+                border-radius: 8px;
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <!-- No Script Warning -->
+    <noscript>
+        <div class="no-script-warning">
+            JavaScript is required for 3D models and interactive features. Please enable JavaScript.
+        </div>
+    </noscript>
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header id="header-container" role="banner"></header>
+
+    <!-- Main -->
+    <main id="main-content" class="container" role="main">
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>CAD Components</h1>
+            <p>Browse and explore professional engineering components.</p>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loading-state"
+             class="loading-state"
+             role="status"
+             aria-live="polite">
+            <div class="spinner"></div>
+            Loading components...
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state"
+             class="error-state"
+             role="alert"
+             hidden>
+            <div class="error-icon">⚠️</div>
+            <h3>Failed to load components</h3>
+            <p>Please check your connection and try again.</p>
+            <button onclick="location.reload()" class="retry-btn">Retry</button>
+        </div>
+
+        <!-- Components Grid -->
+        <section 
+            id="components-grid"
+            class="items-grid"
+            aria-live="polite"
+            aria-busy="true">
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer-container" role="contentinfo"></footer>
+
+    <!-- Detail Modal -->
+    <div 
+        id="detail-modal"
+        class="detail-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="detail-title"
+        tabindex="-1"
+    >
+        <div class="detail-modal-content" id="detail-modal-content">
+
+            <!-- Dynamic Title + Back Button inserted by JS -->
+
+            <!-- Single Media Viewer -->
+            <div 
+                class="media-grid"
+                id="preview-container"
+                aria-live="polite">
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button 
+                class="media-nav left"
+                id="nav-left"
+                aria-label="Previous media">
+                &lt;
+            </button>
+
+            <button 
+                class="media-nav right"
+                id="nav-right"
+                aria-label="Next media">
+                &gt;
+            </button>
+
+            <!-- Media Toolbar -->
+            <div 
+                class="media-toolbar"
+                id="media-toolbar"
+                role="toolbar">
+            </div>
+
+            <!-- Action Buttons -->
+            <div 
+                class="action-buttons"
+                id="action-buttons">
+            </div>
+
+            <!-- Close Button -->
+            <button 
+                class="modal-close"
+                aria-label="Close dialog"
+                id="modal-close-btn">
+                &times;
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="load-partials.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="components.js" defer></script>
+
+</body>
+</html>

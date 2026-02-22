@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Mechanical Portfolio</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Global CSS for header/footer -->
+  <link rel="stylesheet" href="global.css">
+  <!-- Your existing home.css -->
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <!-- Header without contact info and social icons -->
+  <div id="header-container"></div>
+
+  <!-- Top Header (keep your existing top header design) -->
+  <div class="top-header">
+    <h1>PORTFOLIO</h1>
+    <div class="subtitle">MECHANICAL ENGINEERING TECHNICIAN</div>
+  </div>
+
+  <!-- Main Content - Side by Side (keep everything same) -->
+  <main class="layout">
+    <div class="decoration" id="stars"></div>
+
+    <!-- Left Side - Circular Menu -->
+    <section class="left-area">
+      <div class="orbit-container">
+        <div class="orbit-circle"></div>
+        <div class="orbit-circle inner"></div>
+        <div class="orbit-circle outer"></div>
+        <div class="center-circle">PROJECTS</div>
+        <div class="orbit">
+          <div class="orbit-item" data-target="components.html">CAD<br>Components</div>
+          <div class="orbit-item" data-target="assemblies.html">CAD<br>Assemblies</div>
+          <div class="orbit-item" data-target="experiences.html">Experiences</div>
+          <div class="orbit-item" data-target="edu_skills_certificates.html">Edu-Skills-Cert</div>
+          <div class="orbit-item" data-target="contact.html">Contact</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Side - About Me Panel -->
+    <aside class="right-area">
+      <div class="right-panel">
+        <h2>About Me</h2>
+        <p>
+          Mechanical Engineering Technician specialized in CAD design,
+          manufacturing processes, and engineering solutions. With over 5 years of
+          experience in precision mechanical design and prototyping.
+        </p>
+        <p>
+          Focused on innovation, practical problem-solving, and efficient
+          mechanical design and development processes. Strong background in
+          automotive and aerospace components.
+        </p>
+      </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer without quick links and services -->
+  <div id="footer-container"></div>
+
+  <!-- Project Detail Modal -->
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Project Details</h2>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image" id="modalImage">
+          Project Visualization
+        </div>
+        <p id="modalDescription">Click on any of the orbiting circles to view detailed information about that section of my portfolio.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Header and Footer -->
+  <script src="load-partials.js"></script>
+
+  <!-- Your existing home.js -->
+  <script src="home.js"></script>
+</body>
+</html>

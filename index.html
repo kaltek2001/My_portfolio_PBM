@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Portfolio | Mechanical Systems</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;700&family=Courier+New&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- BACKGROUND LAYERS -->
+    <div class="blueprint-layer"></div>
+    <div class="engineering-grid"></div>
+
+    <!-- BACKGROUND MECHANICAL COMPONENTS -->
+    <div class="background-components" id="backgroundComponents"></div>
+
+    <!-- MECHANICAL SYSTEMS -->
+    <div class="mechanical-bg" id="mechanicalSystems">
+        <!-- Row 1 -->
+        <div class="device-container gear-assembly" style="top:12%; left:12%;" data-name="Precision Gear System">
+            <div class="gear-main gear-rotate-clockwise"></div>
+        </div>
+
+        <div class="device-container chain-sprocket" style="top:12%; left:28%;" data-name="Chain & Sprocket">
+            <div class="sprocket-wheel left gear-rotate-clockwise"></div>
+            <div class="sprocket-wheel right gear-rotate-counterclockwise"></div>
+        </div>
+
+        <div class="device-container turbine-blade" style="top:12%; left:44%;" data-name="Turbine Assembly">
+            <div class="turbine-hub turbine-animate"></div>
+        </div>
+
+        <div class="device-container piston-assembly" style="top:12%; left:60%;" data-name="Piston Mechanism">
+            <div class="piston-cylinder">
+                <div class="piston-head piston-animate"></div>
+                <div class="piston-rod"></div>
+            </div>
+            <div class="connecting-rod rod-animate"></div>
+            <div class="crank-wheel gear-rotate-clockwise"></div>
+        </div>
+
+        <div class="device-container pulley-system" style="top:12%; left:76%;" data-name="Pulley System">
+            <div class="pulley-wheel gear-rotate-clockwise"></div>
+            <div class="pulley-rope"></div>
+            <div class="pulley-weight"></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="device-container planetary-gear" style="top:28%; left:12%;" data-name="Planetary Gear">
+            <div class="sun-gear sun-animate"></div>
+            <div class="planet-gear planet-animate"></div>
+            <div class="ring-gear gear-rotate-counterclockwise"></div>
+        </div>
+
+        <div class="device-container cnc-machine" style="top:28%; left:28%;" data-name="CNC Machine">
+            <div class="cnc-base"></div>
+            <div class="cnc-column"></div>
+            <div class="cnc-arm"></div>
+            <div class="cnc-spindle"></div>
+            <div class="cnc-table"></div>
+        </div>
+
+        <div class="device-container fulcrum-lever" style="top:28%; left:44%;" data-name="Fulcrum Lever">
+            <div class="fulcrum-base"></div>
+            <div class="fulcrum-pivot"></div>
+            <div class="lever-beam oscillating-animate"></div>
+        </div>
+
+        <div class="device-container oscillating-mechanism" style="top:28%; left:60%;" data-name="Oscillating Arm">
+            <div class="oscillating-base"></div>
+            <div class="oscillating-arm oscillating-animate"></div>
+        </div>
+
+        <div class="device-container mechanical-gripper" style="top:28%; left:76%;" data-name="Robotic Gripper">
+            <div class="gripper-base"></div>
+            <div class="gripper-arm left oscillating-animate"></div>
+            <div class="gripper-arm right oscillating-animate"></div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="device-container rack-pinion" style="top:44%; left:12%;" data-name="Rack & Pinion">
+            <div class="rack-rail"></div>
+            <div class="pinion-gear gear-rotate-clockwise"></div>
+        </div>
+
+        <div class="device-container compound-pendulum" style="top:44%; left:28%;" data-name="Compound Pendulum">
+            <div class="pendulum-pivot"></div>
+            <div class="pendulum-rod pendulum-animate"></div>
+            <div class="pendulum-mass"></div>
+        </div>
+
+        <div class="device-container bearing-assembly" style="top:44%; left:44%;" data-name="Bearing Assembly">
+            <div class="bearing-outer gear-rotate-clockwise"></div>
+            <div class="bearing-inner gear-rotate-counterclockwise"></div>
+        </div>
+
+        <div class="device-container screw-conveyor" style="top:44%; left:60%;" data-name="Screw Conveyor">
+            <div class="conveyor-tube">
+                <div class="conveyor-screw conveyor-animate"></div>
+            </div>
+        </div>
+
+        <div class="device-container cam-follower" style="top:44%; left:76%;" data-name="Cam & Follower">
+            <div class="cam-shaft"></div>
+            <div class="cam-wheel gear-rotate-clockwise"></div>
+            <div class="follower oscillating-animate"></div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="device-container universal-joint" style="top:60%; left:12%;" data-name="Universal Joint">
+            <div class="uj-cross gear-rotate-clockwise"></div>
+        </div>
+
+        <div class="device-container radial-engine" style="top:60%; left:28%;" data-name="Radial Engine">
+            <div class="engine-crankcase engine-animate"></div>
+        </div>
+
+        <div class="device-container valve-system" style="top:60%; left:44%;" data-name="Control Valve">
+            <div class="valve-body">
+                <div class="valve-stem oscillating-animate"></div>
+                <div class="valve-spring"></div>
+            </div>
+        </div>
+
+        <div class="device-container screw-jack" style="top:60%; left:60%;" data-name="Screw Jack">
+            <div class="jack-base"></div>
+            <div class="jack-screw"></div>
+            <div class="jack-platform oscillating-animate"></div>
+        </div>
+
+        <div class="device-container spring-system" style="top:60%; left:76%;" data-name="Spring System">
+            <div class="spring-top"></div>
+            <div class="spring-coil oscillating-animate"></div>
+            <div class="spring-mass pendulum-animate"></div>
+        </div>
+    </div>
+
+    <!-- FORMULA LAYER -->
+    <div class="formula-layer" id="formulaLayer"></div>
+
+    <!-- STATUS INDICATORS -->
+    <div class="status-indicator" style="top:15px; left:15px;">STATUS: NOMINAL</div>
+    <div class="status-indicator" style="top:15px; right:15px;">SYSTEMS: 20 ACTIVE</div>
+    <div class="status-indicator" style="bottom:15px; left:15px;">ENGINEERING PORTFOLIO</div>
+    <div class="status-indicator" style="bottom:15px; right:15px;">POWER: 98%</div>
+
+    <!-- MAIN INTERACTIVE CONTENT -->
+    <div class="container" id="scene">
+        <div class="rocket-container">
+            <div class="rocket" id="rocket">
+                <div class="rocket-body"></div>
+                <div class="rocket-window"></div>
+                <div class="flame-container" id="flameContainer">
+                    <div class="flame flame-1"></div>
+                    <div class="flame flame-2"></div>
+                    <div class="flame flame-3"></div>
+                </div>
+            </div>
+            <button id="launch">LAUNCH SEQUENCE</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="index.js"></script>
+</body>
+</html>
