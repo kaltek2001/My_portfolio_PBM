@@ -12,14 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeAssemblies();
 });
 
-function initializeAssemblies() {
-    if (!window.assembliesData || assembliesData.length === 0) {
-        console.error("No assemblies data found in data.js");
-        showError('No assemblies data available');
-        return;
-    }
+async function initializeAssemblies() {
+    try {
+        const response = await fetch('assemblies.json');
+        if (!response.ok) throw new Error('Network error');
+        const assembliesData = await response.json();
+        
+        window.assembliesData = assembliesData;
+        
+        if (!window.assembliesData || window.assembliesData.length === 0) {
+            showError('No assemblies data available');
+            return;
+        }
 
-    loadAssemblies();
+        loadAssemblies();
+    } catch (error) {
+        console.error('Failed to load assemblies.json:', error);
+        showError('Failed to load assemblies');
+    }
 }
 
 function loadAssemblies() {
@@ -27,7 +37,7 @@ function loadAssemblies() {
         assembliesGrid.innerHTML = '';
         hideError();
 
-        assembliesData.forEach(assembly => {
+        window.assembliesData.forEach(assembly => {
             const card = createAssemblyCard(assembly);
             assembliesGrid.appendChild(card);
         });
@@ -82,6 +92,7 @@ function showAssemblyDetail(item) {
     currentType = determineInitialMediaType(currentItem);
     
     populateModalContent();
+    renderCurrentMedia(); // This line was missing in your original – added for consistency
     
     detailModal.classList.add('active');
     detailModal.setAttribute('aria-hidden', 'false');
@@ -242,6 +253,20 @@ function createModelElement(src) {
     modelViewer.setAttribute('alt', `3D model of ${currentItem.title}`);
     modelViewer.className = 'media-item';
     
+    // Force dimensions with inline styles
+    modelViewer.style.width = '800px';
+    modelViewer.style.height = '500px';
+    modelViewer.style.maxWidth = '100%';
+    
+    // Force resize after a short delay to ensure rendering
+    setTimeout(() => {
+        if (modelViewer.updateFramebuffer) {
+            modelViewer.updateFramebuffer();
+        } else {
+            window.dispatchEvent(new Event('resize'));
+        }
+    }, 100);
+    
     return modelViewer;
 }
 
@@ -271,20 +296,17 @@ function createNavButton(direction, icon, clickHandler) {
 }
 
 function addToolbarControls(toolbar, totalItems) {
-    // Add counter
     const counter = document.createElement('span');
     counter.className = 'model-counter';
     counter.textContent = `${currentIndex + 1} / ${totalItems}`;
     toolbar.appendChild(counter);
     
-    // Add fullscreen button for all media types
     const fsBtn = document.createElement('button');
     fsBtn.textContent = '⛶ Fullscreen';
     fsBtn.setAttribute('aria-label', 'View in fullscreen');
     fsBtn.onclick = toggleFullscreen;
     toolbar.appendChild(fsBtn);
     
-    // Add AR button only for models
     if (currentType === 'model') {
         const arBtn = document.createElement('button');
         arBtn.textContent = '📱 AR';

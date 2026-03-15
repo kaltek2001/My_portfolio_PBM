@@ -1,0 +1,44 @@
+[
+  {
+    "id": "angle-clip",
+    "title": "Angle Clip",
+    "thumbnail": "Assets/Components/Angle Clip/thumbnail.JPG",
+    "images": [
+      "Assets/Components/Angle Clip/Angle Clip 1.JPG",
+      "Assets/Components/Angle Clip/Angle Clip 2.JPG",
+      "Assets/Components/Angle Clip/Angle Clip 3.JPG",
+      "Assets/Components/Angle Clip/Angle Clip 4.JPG",
+      "Assets/Components/Angle Clip/Angle Clip 5.JPG",
+      "Assets/Components/Angle Clip/Angle Clip 6.JPG"
+    ],
+    "videos": [
+      "Assets/Components/Angle Clip/Angle Clip.mp4"
+    ],
+    "drawing": [
+      "Assets/Components/Angle Clip/Angle Clip.pdf"
+    ],
+    "model3d": [
+      "Assets/Components/Angle Clip/Angle_Clip.gltf"
+    ]
+  },
+  {
+    "id": "control-bracket-casting",
+    "title": "Control Bracket Casting",
+    "thumbnail": "Assets/Components/Control Bracket Casting/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 1.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 2.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 3.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 4.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 5.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 6.JPG"
+    ],
+    "videos": [],
+    "drawing": [
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting.pdf"
+    ],
+    "model3d": [
+      "Assets/Components/Control Bracket Casting/Control_Bracket_Casting.gltf"
+    ]
+  }
+]

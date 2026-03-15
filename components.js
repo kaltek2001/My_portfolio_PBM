@@ -12,14 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeComponents();
 });
 
-function initializeComponents() {
-    if (!window.componentsData || componentsData.length === 0) {
-        console.error("No components data found in data.js");
-        showError('No components data available');
-        return;
-    }
+async function initializeComponents() {
+    try {
+        const response = await fetch('components.json');
+        if (!response.ok) throw new Error('Network error');
+        const componentsData = await response.json();
+        
+        window.componentsData = componentsData;
+        
+        if (!window.componentsData || window.componentsData.length === 0) {
+            showError('No components data available');
+            return;
+        }
 
-    loadComponents();
+        loadComponents();
+    } catch (error) {
+        console.error('Failed to load components.json:', error);
+        showError('Failed to load components');
+    }
 }
 
 function loadComponents() {
@@ -27,7 +37,7 @@ function loadComponents() {
         componentsGrid.innerHTML = '';
         hideError();
 
-        componentsData.forEach(component => {
+        window.componentsData.forEach(component => {
             const card = createComponentCard(component);
             componentsGrid.appendChild(card);
         });

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "geneva-wheel",
+    "title": "Geneva Wheel",
+    "thumbnail": "Assets/Assemblies/Geneva Wheel/thumbnail.JPG",
+    "images": [
+      "Assets/Assemblies/Geneva Wheel/Base.JPG",
+      "Assets/Assemblies/Geneva Wheel/Geneva Gear.JPG",
+      "Assets/Assemblies/Geneva Wheel/Geneva Wheel.JPG",
+      "Assets/Assemblies/Geneva Wheel/Shoulder Bolt.JPG",
+      "Assets/Assemblies/Geneva Wheel/Wheel.JPG",
+      "Assets/Assemblies/Geneva Wheel/Whiz nut.JPG"
+    ],
+    "videos": [
+      "Assets/Assemblies/Geneva Wheel/Geneva Wheel.mp4"
+    ],
+    "drawing": [
+      "Assets/Assemblies/Geneva Wheel/Shoulder Bolt.pdf",
+      "Assets/Assemblies/Geneva Wheel/Wheel.pdf",
+      "Assets/Assemblies/Geneva Wheel/Whiz Nut.pdf"
+    ],
+    "model3d": [
+      "Assets/Assemblies/Geneva Wheel/Base.gltf",
+      "Assets/Assemblies/Geneva Wheel/Geneva_Gear.gltf",
+      "Assets/Assemblies/Geneva Wheel/Geneva_Wheel.gltf",
+      "Assets/Assemblies/Geneva Wheel/Shoulder_Bolt.gltf",
+      "Assets/Assemblies/Geneva Wheel/Wheel.gltf",
+      "Assets/Assemblies/Geneva Wheel/Whiz_nut.gltf"
+    ]
+  }
+]
