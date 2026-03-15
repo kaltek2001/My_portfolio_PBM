@@ -1,95 +1,95 @@
-// Set current year in footer (if present)
-const yearEl = document.getElementById('current-year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+// edu_skills_certificates.js – Page‑specific animations and interactions
 
-// Mobile menu functionality (if not already handled globally)
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const navLinks = document.getElementById('nav-links');
+(function() {
+    'use strict';
 
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-    });
+    // ===== PAUSE HERO ANIMATION WHEN PAGE HIDDEN =====
+    (function pauseAnimationWhenHidden() {
+        const heroGear = document.querySelector('.hero-gear');
+        if (!heroGear) return;
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        });
-    });
-}
+        const handleVisibilityChange = () => {
+            heroGear.style.animationPlayState = document.hidden ? 'paused' : 'running';
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+    })();
 
-// Back to top button
-const backToTop = document.getElementById('back-to-top');
-if (backToTop) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    });
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
+    // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
+    document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll(
+            '.timeline-item, .certification-card, .skill-category, .soft-skill-category, .course-tag'
+        );
 
-// Intersection Observer for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll(
-        '.timeline-item, .certification-card, .skill-category, .soft-skill-category, .course-tag'
-    );
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
 
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -30px 0px'
-    };
+                    // Trigger progress bar animation
+                    const progressBars = entry.target.querySelectorAll('.progress-bar span');
+                    progressBars.forEach(bar => {
+                        // Use requestAnimationFrame to ensure smooth transition
+                        requestAnimationFrame(() => {
+                            bar.style.transition = 'width 1s ease';
+                            // Force reflow by reading offsetWidth
+                            void bar.offsetWidth;
+                            // Width is already set inline, no need to set again
+                        });
+                    });
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                // Trigger progress bar animation with a small delay
-                const progressBars = entry.target.querySelectorAll('.progress-bar span');
-                progressBars.forEach(bar => {
-                    const width = bar.style.width; // already set inline
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Also trigger for any progress bars already in view
+        setTimeout(() => {
+            document.querySelectorAll('.progress-bar span').forEach(bar => {
+                requestAnimationFrame(() => {
                     bar.style.transition = 'width 1s ease';
+                    void bar.offsetWidth;
                 });
-                observer.unobserve(entry.target);
+            });
+        }, 100);
+
+        // ===== EXPANDABLE DETAILS FUNCTIONALITY =====
+        const expandButtons = document.querySelectorAll('.btn-expand');
+        expandButtons.forEach(button => {
+            // Store show/hide texts if not already stored
+            if (!button.dataset.showText) {
+                button.dataset.showText = 'Show achievements';
+                button.dataset.hideText = 'Hide achievements';
             }
+
+            button.addEventListener('click', () => {
+                const expanded = button.getAttribute('aria-expanded') === 'true' ? false : true;
+                button.setAttribute('aria-expanded', expanded);
+
+                const targetId = button.getAttribute('aria-controls');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.hidden = !expanded;
+                }
+
+                // Update button text and icon
+                const icon = button.querySelector('i');
+                const textSpan = button.querySelector('span') || button.childNodes[1]; // adjust if structure differs
+                if (textSpan) {
+                    textSpan.textContent = expanded ? button.dataset.hideText : button.dataset.showText;
+                }
+                if (icon) {
+                    icon.className = expanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+                }
+            });
         });
-    }, observerOptions);
 
-    animatedElements.forEach(el => observer.observe(el));
-
-    // Force progress bars to animate if already in view
-    setTimeout(() => {
-        document.querySelectorAll('.progress-bar span').forEach(bar => {
-            bar.style.width = bar.style.width; // trigger reflow
-        });
-    }, 100);
-
-    // ===== IMPROVED: Expandable details functionality =====
-    const expandButtons = document.querySelectorAll('.btn-expand');
-    expandButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const expanded = button.getAttribute('aria-expanded') === 'true' ? false : true;
-            button.setAttribute('aria-expanded', expanded);
-            const targetId = button.getAttribute('aria-controls');
-            const target = document.getElementById(targetId);
-            if (target) {
-                target.hidden = !expanded;
+        // ===== TOOLTIP ACCESSIBILITY =====
+        document.querySelectorAll('[data-tooltip]').forEach(el => {
+            if (!el.hasAttribute('aria-label')) {
+                el.setAttribute('aria-label', el.getAttribute('data-tooltip'));
             }
         });
     });
-
-    // ===== IMPROVED: Tooltip enhancement for better accessibility =====
-    // (Already handled via CSS, but we can add ARIA labels)
-    document.querySelectorAll('[data-tooltip]').forEach(el => {
-        el.setAttribute('aria-label', el.getAttribute('data-tooltip'));
-    });
-
-    // ===== IMPROVED: Optional smooth reveal for new elements =====
-    // (Already covered by Intersection Observer)
-});
+})();

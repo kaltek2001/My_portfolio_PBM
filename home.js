@@ -1,11 +1,70 @@
-// home.js - Updated version
+// home.js - Improved version with accessibility, performance, and robustness
 
-// Star field generation
+// ===== Configuration =====
+const CONFIG = {
+  starCount: 80,                // Reduced from 200 for performance
+  orbitRadius: 210,
+  rotationSpeed: 0.0015,
+  modalCloseDelay: 2000          // Time before modal auto-closes (if desired)
+};
+
+// ===== Global Variables =====
+let angle = 0;
+let isAnimating = true;
+let animationId = null;
+let currentFocusElement = null;   // To store element that opened modal
+
+// ===== DOM Element References (with null checks) =====
+const starsContainer = document.getElementById('stars');
+const orbitItems = document.querySelectorAll('.orbit-item');
+const centerCircle = document.querySelector('.center-circle');
+const orbitContainer = document.querySelector('.orbit-container');
+const modal = document.getElementById('projectModal');
+const modalTitle = document.querySelector('.modal-title');
+const modalDescription = document.getElementById('modalDescription');
+const modalImage = document.getElementById('modalImage');
+const closeModal = document.getElementById('closeModal');
+
+// ===== Modal Data (keys now match data-label attributes) =====
+const modalData = {
+  'CAD Components': {
+    title: 'CAD Components',
+    description: 'Detailed mechanical component designs created using SolidWorks, AutoCAD, and Fusion 360. Includes individual part designs with complete specifications, materials selection, and manufacturing considerations.',
+    color: '#9aa4ff'
+  },
+  'CAD Assemblies': {
+    title: 'CAD Assemblies',
+    description: 'Complex mechanical assemblies showing how components work together. Features include exploded views, assembly animations, and detailed assembly instructions with proper constraints and relationships.',
+    color: '#7a86ff'
+  },
+  'Experiences': {
+    title: 'Professional Experiences',
+    description: 'Comprehensive work history in mechanical engineering roles. Includes project management, team leadership, and hands-on experience with manufacturing processes and quality control.',
+    color: '#5a68ff'
+  },
+  'Edu-Skills-Cert': {            // Fixed key to match data-label
+    title: 'Education, Skills & Certifications',
+    description: 'Academic background, technical skills, and professional certifications. Includes CAD software proficiency, engineering analysis skills, and industry-recognized certifications.',
+    color: '#4a58ff'
+  },
+  'Contact': {
+    title: 'Contact Information',
+    description: 'Get in touch for project inquiries, collaboration opportunities, or professional consultation. Available for freelance projects and full-time mechanical engineering positions.',
+    color: '#3a48ff'
+  },
+  'Projects Portfolio': {
+    title: 'Projects Portfolio',
+    description: 'Explore my engineering projects, CAD designs, and professional experiences through the orbiting menu.',
+    color: '#9aa4ff'
+  }
+};
+
+// ===== Star Field Generation (with null check) =====
 function createStars() {
-  const starsContainer = document.getElementById('stars');
-  const starCount = 200;
-
-  for (let i = 0; i < starCount; i++) {
+  if (!starsContainer) return;
+  // Clear existing stars if any
+  starsContainer.innerHTML = '';
+  for (let i = 0; i < CONFIG.starCount; i++) {
     const star = document.createElement('div');
     star.classList.add('star');
 
@@ -23,85 +82,46 @@ function createStars() {
   }
 }
 
-// Orbit positioning and animation
-const items = document.querySelectorAll(".orbit-item");
-const radius = 210;
-let angle = 0;
-let isAnimating = true;
-let animationId = null;
-
+// ===== Orbit Animation =====
 function positionItems() {
-  const step = (2 * Math.PI) / items.length;
+  if (!orbitItems.length) return;
+  const step = (2 * Math.PI) / orbitItems.length;
 
-  items.forEach((item, i) => {
-    const x = radius * Math.cos(angle + i * step);
-    const y = radius * Math.sin(angle + i * step);
+  orbitItems.forEach((item, i) => {
+    const x = CONFIG.orbitRadius * Math.cos(angle + i * step);
+    const y = CONFIG.orbitRadius * Math.sin(angle + i * step);
 
     item.style.left = "50%";
     item.style.top = "50%";
-    item.style.transform =
-      `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+    item.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
   });
 }
 
 function animate() {
-  if (isAnimating) {
-    angle += 0.0015;
-    positionItems();
-  }
+  if (!isAnimating) return;
+  angle += CONFIG.rotationSpeed;
+  positionItems();
   animationId = requestAnimationFrame(animate);
 }
 
-// Initialize skill bars
-function initSkillBars() {
-  const skillLevels = document.querySelectorAll('.skill-level');
-  skillLevels.forEach(skill => {
-    const level = skill.getAttribute('data-level');
-    setTimeout(() => {
-      skill.style.width = `${level}%`;
-    }, 500);
-  });
+// Pause/resume based on page visibility
+function handleVisibilityChange() {
+  isAnimating = !document.hidden;
+  if (isAnimating && !animationId) {
+    animate();
+  }
 }
 
-// Modal functionality
-const modal = document.getElementById('projectModal');
-const modalTitle = document.querySelector('.modal-title');
-const modalDescription = document.getElementById('modalDescription');
-const modalImage = document.getElementById('modalImage');
-const closeModal = document.getElementById('closeModal');
+// ===== Modal Functions =====
+function showModal(sectionLabel) {
+  if (!modal) return;
 
-const modalData = {
-  'CAD Components': {
-    title: 'CAD Components',
-    description: 'Detailed mechanical component designs created using SolidWorks, AutoCAD, and Fusion 360. Includes individual part designs with complete specifications, materials selection, and manufacturing considerations.',
-    color: '#9aa4ff'
-  },
-  'CAD Assemblies': {
-    title: 'CAD Assemblies',
-    description: 'Complex mechanical assemblies showing how components work together. Features include exploded views, assembly animations, and detailed assembly instructions with proper constraints and relationships.',
-    color: '#7a86ff'
-  },
-  'Experiences': {
-    title: 'Professional Experiences',
-    description: 'Comprehensive work history in mechanical engineering roles. Includes project management, team leadership, and hands-on experience with manufacturing processes and quality control.',
-    color: '#5a68ff'
-  },
-  'Edu/Skills/Cert': {
-    title: 'Education, Skills & Certifications',
-    description: 'Academic background, technical skills, and professional certifications. Includes CAD software proficiency, engineering analysis skills, and industry-recognized certifications.',
-    color: '#4a58ff'
-  },
-  'Contact': {
-    title: 'Contact Information',
-    description: 'Get in touch for project inquiries, collaboration opportunities, or professional consultation. Available for freelance projects and full-time mechanical engineering positions.',
-    color: '#3a48ff'
-  }
-};
+  // Store the element that triggered the modal (for focus return)
+  currentFocusElement = document.activeElement;
 
-function showModal(section) {
-  const data = modalData[section] || {
-    title: section,
-    description: `Information about ${section} will be displayed here.`,
+  const data = modalData[sectionLabel] || {
+    title: sectionLabel,
+    description: `Information about ${sectionLabel} will be displayed here.`,
     color: '#9aa4ff'
   };
 
@@ -111,66 +131,133 @@ function showModal(section) {
   modalImage.style.borderColor = data.color;
   modalImage.textContent = `${data.title} Overview`;
 
+  // Show modal and set focus
   modal.style.display = 'flex';
+  modal.focus({ preventScroll: true });  // Focus the modal container
+
+  // Trap focus inside modal (simple version)
+  modal.addEventListener('keydown', trapFocus);
 }
 
-// Navigation functionality
-items.forEach((item) => {
-  item.addEventListener('click', () => {
-    const targetPage = item.getAttribute('data-target');
-    const itemText = item.textContent.replace(/\n/g, ' ');
-
-    // Visual feedback
-    item.style.background = 'radial-gradient(circle at 30% 30%, #4a5080, #2a38ff)';
-    item.style.boxShadow = '0 0 40px rgba(154, 164, 255, 0.8)';
-
-    setTimeout(() => {
-      item.style.background = '';
-      item.style.boxShadow = '';
-
-      // Navigate to target page
-      if (targetPage) {
-        window.location.href = targetPage;
-      }
-    }, 300);
-
-    // Show modal for demo (optional)
-    // showModal(itemText);
-  });
-});
-
-closeModal.addEventListener('click', () => {
+function closeModalHandler() {
+  if (!modal) return;
   modal.style.display = 'none';
-});
+  modal.removeEventListener('keydown', trapFocus);
 
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
+  // Return focus to the element that opened the modal
+  if (currentFocusElement && typeof currentFocusElement.focus === 'function') {
+    currentFocusElement.focus({ preventScroll: true });
   }
-});
+}
 
-// Pause animation on hover
-const orbitContainer = document.querySelector('.orbit-container');
+function trapFocus(e) {
+  if (!modal) return;
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const first = focusableElements[0];
+  const last = focusableElements[focusableElements.length - 1];
 
-orbitContainer.addEventListener('mouseenter', () => {
-  isAnimating = false;
-});
+  if (e.key === 'Tab') {
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
 
-orbitContainer.addEventListener('mouseleave', () => {
-  isAnimating = true;
-});
+  // Close on Escape
+  if (e.key === 'Escape') {
+    closeModalHandler();
+  }
+}
 
-// Center circle click
-const centerCircle = document.querySelector('.center-circle');
-centerCircle.addEventListener('click', () => {
-  showModal('Projects Portfolio');
-});
+// ===== Navigation =====
+function handleItemClick(item) {
+  const targetPage = item.getAttribute('data-target');
+  const label = item.getAttribute('data-label');
 
-// Set active navigation link
+  // Visual feedback
+  item.style.background = 'radial-gradient(circle at 30% 30%, #4a5080, #2a38ff)';
+  item.style.boxShadow = '0 0 40px rgba(154, 164, 255, 0.8)';
+
+  // Show modal (optional – comment out if not desired)
+  if (label) showModal(label);
+
+  // Navigate after a short delay (or immediately if you prefer)
+  setTimeout(() => {
+    item.style.background = '';
+    item.style.boxShadow = '';
+    if (targetPage) {
+      window.location.href = targetPage;
+    }
+  }, 300);
+}
+
+// ===== Event Setup =====
+function setupEventListeners() {
+  // Orbit items click + keyboard
+  orbitItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      handleItemClick(item);
+    });
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleItemClick(item);
+      }
+    });
+  });
+
+  // Center circle click + keyboard
+  if (centerCircle) {
+    centerCircle.addEventListener('click', () => {
+      const label = centerCircle.getAttribute('data-label') || 'Projects Portfolio';
+      showModal(label);
+    });
+    centerCircle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const label = centerCircle.getAttribute('data-label') || 'Projects Portfolio';
+        showModal(label);
+      }
+    });
+  }
+
+  // Modal close button
+  if (closeModal) {
+    closeModal.addEventListener('click', closeModalHandler);
+  }
+
+  // Close modal on backdrop click
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModalHandler();
+    });
+  }
+
+  // Pause animation on hover
+  if (orbitContainer) {
+    orbitContainer.addEventListener('mouseenter', () => { isAnimating = false; });
+    orbitContainer.addEventListener('mouseleave', () => { isAnimating = true; });
+  }
+
+  // Page visibility change (pause when tab hidden)
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+}
+
+// ===== Active Navigation Link (with null check) =====
 function setActiveNavLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'home.html';
   const navLinks = document.querySelectorAll('.nav-link');
-
+  if (!navLinks.length) return;
+  const currentPage = window.location.pathname.split('/').pop() || 'home.html';
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'home.html')) {
@@ -181,18 +268,36 @@ function setActiveNavLink() {
   });
 }
 
-// Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  positionItems();
-  animate();
-  createStars();
-  initSkillBars();
-  setActiveNavLink();
-});
+// ===== Initialize =====
+function init() {
+  // Check for reduced motion preference
+  const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (motionMediaQuery.matches) {
+    isAnimating = false;
+  }
 
-// Handle page unload
+  createStars();
+  if (orbitItems.length) {
+    positionItems();
+    animate();
+  }
+  setActiveNavLink();
+  setupEventListeners();
+
+  // (Optional) Remove or conditionally run skill bars if elements exist
+  // const skillLevels = document.querySelectorAll('.skill-level');
+  // if (skillLevels.length) {
+  //   initSkillBars(skillLevels);
+  // }
+}
+
+// Start when DOM is ready
+document.addEventListener('DOMContentLoaded', init);
+
+// Clean up on page unload
 window.addEventListener('beforeunload', () => {
   if (animationId) {
     cancelAnimationFrame(animationId);
   }
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
 });

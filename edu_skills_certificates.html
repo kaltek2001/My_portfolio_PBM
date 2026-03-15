@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education & Skills | Mechanical Engineer</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Inter + Space Mono for technical accents) -->
+    <!-- Font Awesome (replace with actual SRI hash in production) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-ys4E4c8D7zI6jPC9rk0ZxPx0VvQw3/HqC6+KFZ3JN3mD8T8X3yN8HFAJzB6B+E2vLkB9RcU5Q0nFpS0kA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <!-- Google Fonts (Inter + Space Mono) – add SRI if possible -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Mono&display=swap" rel="stylesheet">
-    <!-- Global & page CSS -->
+    <!-- Global CSS (header/footer styles) -->
     <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="home.css">
+    <!-- Page-specific CSS only -->
     <link rel="stylesheet" href="edu_skills_certificates.css">
 </head>
 <body>
@@ -21,9 +24,9 @@
         <!-- Hero Section with engineering pattern -->
         <section class="education-hero">
             <div class="hero-pattern"></div>
-            <div class="hero-gear"><i class="fas fa-cog"></i></div>
+            <div class="hero-gear" aria-hidden="true"><i class="fas fa-cog"></i></div>
             <div class="container hero-content">
-                <h1><i class="fas fa-graduation-cap"></i> Education & Skills</h1>
+                <h1><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education & Skills</h1>
                 <p>Technical expertise and academic qualifications in Mechanical Engineering</p>
             </div>
         </section>
@@ -31,44 +34,43 @@
         <div class="education-container">
             <!-- Education Section - Timeline Layout -->
             <section class="education-section">
-                <h2 class="section-title"><i class="fas fa-university"></i> Education</h2>
+                <h2 class="section-title"><i class="fas fa-university" aria-hidden="true"></i> Education</h2>
                 <div class="timeline">
-                    <!-- Timeline item 1 (scalable – add more by copying this block) -->
+                    <!-- Timeline item 1 -->
                     <div class="timeline-item">
-                        <div class="timeline-dot"></div>
+                        <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-content education-item glass-card">
-                            <!-- IMPROVED: Institution logo placeholder -->
-                            <div class="institution-logo-placeholder" aria-label="Institution logo placeholder"></div>
+                            <!-- Decorative placeholder, hidden from screen readers -->
+                            <div class="institution-logo-placeholder" aria-hidden="true"></div>
                             <div class="education-header">
                                 <h3 class="education-degree">Mechanical Engineering Technician – Design</h3>
-                                <h4 class="education-institution"><i class="fas fa-graduation-cap"></i> Centennial College of Applied Arts and Technology</h4>
+                                <h4 class="education-institution"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Centennial College of Applied Arts and Technology</h4>
                                 <div class="education-meta">
-                                    <span><i class="fas fa-map-marker-alt"></i> Toronto, ON</span>
-                                    <span><i class="fas fa-calendar"></i> Jan 2023 – April 2024</span>
-                                    <!-- IMPROVED: GPA/Honors badge placeholder -->
-                                    <span class="honors-badge" aria-label="Honors: GPA 3.8/4.0"><i class="fas fa-star"></i> Honors</span>
+                                    <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Toronto, ON</span>
+                                    <span><i class="fas fa-calendar" aria-hidden="true"></i> Jan 2023 – April 2024</span>
+                                    <span class="honors-badge"><i class="fas fa-star" aria-hidden="true"></i> Honors</span>
                                 </div>
                             </div>
                             <div class="education-details">
-                                <h5><i class="fas fa-book-open"></i> Relevant Courses:</h5>
+                                <h5><i class="fas fa-book-open" aria-hidden="true"></i> Relevant Courses:</h5>
                                 <div class="courses-grid">
-                                    <span class="course-tag"><i class="fas fa-cube"></i> SolidWorks</span>
-                                    <span class="course-tag"><i class="fas fa-industry"></i> Mastercam</span>
-                                    <span class="course-tag"><i class="fas fa-ruler"></i> CMM</span>
-                                    <span class="course-tag"><i class="fas fa-tachometer-alt"></i> Hydraulics/Pneumatics</span>
-                                    <span class="course-tag"><i class="fas fa-cogs"></i> Applied Dynamics and Kinematics</span>
-                                    <span class="course-tag"><i class="fas fa-drafting-compass"></i> AutoCAD</span>
-                                    <span class="course-tag"><i class="fas fa-tasks"></i> Project Management</span>
-                                    <span class="course-tag"><i class="fas fa-bolt"></i> Applied Electricity</span>
-                                    <span class="course-tag"><i class="fas fa-tools"></i> Tool Design</span>
-                                    <span class="course-tag"><i class="fas fa-drafting-compass"></i> Inventor</span>
+                                    <span class="course-tag"><i class="fas fa-cube" aria-hidden="true"></i> SolidWorks</span>
+                                    <span class="course-tag"><i class="fas fa-industry" aria-hidden="true"></i> Mastercam</span>
+                                    <span class="course-tag"><i class="fas fa-ruler" aria-hidden="true"></i> CMM</span>
+                                    <span class="course-tag"><i class="fas fa-tachometer-alt" aria-hidden="true"></i> Hydraulics/Pneumatics</span>
+                                    <span class="course-tag"><i class="fas fa-cogs" aria-hidden="true"></i> Applied Dynamics and Kinematics</span>
+                                    <span class="course-tag"><i class="fas fa-drafting-compass" aria-hidden="true"></i> AutoCAD</span>
+                                    <span class="course-tag"><i class="fas fa-tasks" aria-hidden="true"></i> Project Management</span>
+                                    <span class="course-tag"><i class="fas fa-bolt" aria-hidden="true"></i> Applied Electricity</span>
+                                    <span class="course-tag"><i class="fas fa-tools" aria-hidden="true"></i> Tool Design</span>
+                                    <span class="course-tag"><i class="fas fa-drafting-compass" aria-hidden="true"></i> Inventor</span>
                                 </div>
-                                <!-- IMPROVED: Expandable details placeholder (hidden by default) -->
+                                <!-- Expandable details (hidden by default) -->
                                 <div class="expandable-details" id="edu-details-1" hidden>
-                                    <p><strong><i class="fas fa-award"></i> Additional Achievements:</strong> Dean's List (2023), Capstone Project Excellence Award</p>
+                                    <p><strong><i class="fas fa-award" aria-hidden="true"></i> Additional Achievements:</strong> Dean's List (2023), Capstone Project Excellence Award</p>
                                 </div>
                                 <button class="btn-expand" aria-expanded="false" aria-controls="edu-details-1">
-                                    <i class="fas fa-chevron-down"></i> Show achievements
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i> Show achievements
                                 </button>
                             </div>
                         </div>
@@ -79,22 +81,21 @@
 
             <!-- Certification Section -->
             <section class="certifications-section">
-                <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+                <h2 class="section-title"><i class="fas fa-certificate" aria-hidden="true"></i> Certifications</h2>
                 <div class="certification-card glass-card">
-                    <!-- IMPROVED: Certification logo placeholder -->
-                    <div class="certification-logo-placeholder" aria-label="Certification logo placeholder">
+                    <!-- Certification logo placeholder (decorative) -->
+                    <div class="certification-logo-placeholder" aria-hidden="true">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
                     <div class="certification-content">
                         <h3>Certified SolidWorks Associate – Mechanical Design</h3>
                         <p>Certified in mechanical design using SolidWorks for 3D modeling, assemblies, and engineering drawings</p>
-                        <!-- IMPROVED: Credential ID, Issue Date, Verification Badge -->
                         <div class="certification-meta">
-                            <span class="credential-id"><i class="fas fa-id-card"></i> Credential ID: CSWA-2024-12345</span>
-                            <span class="issue-date"><i class="fas fa-calendar-alt"></i> Issued: June 2024</span>
-                            <span class="verification-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            <span class="credential-id"><i class="fas fa-id-card" aria-hidden="true"></i> Credential ID: CSWA-2024-12345</span>
+                            <span class="issue-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Issued: June 2024</span>
+                            <span class="verification-badge"><i class="fas fa-check-circle" aria-hidden="true"></i> Verified</span>
                         </div>
-                        <span class="certification-badge"><i class="fas fa-award"></i> Professional Certification</span>
+                        <span class="certification-badge"><i class="fas fa-award" aria-hidden="true"></i> Professional Certification</span>
                     </div>
                 </div>
                 <!-- Additional certification cards can be added here -->
@@ -102,16 +103,16 @@
 
             <!-- Technical Skills Section with Progress Bars -->
             <section class="technical-skills-section">
-                <h2 class="section-title"><i class="fas fa-tools"></i> Technical Skills</h2>
+                <h2 class="section-title"><i class="fas fa-tools" aria-hidden="true"></i> Technical Skills</h2>
                 <div class="skills-grid">
                     <!-- CAD & Software Skills -->
                     <div class="skill-category glass-card">
-                        <h3><i class="fas fa-drafting-compass"></i> CAD & Software Proficiency</h3>
+                        <h3><i class="fas fa-drafting-compass" aria-hidden="true"></i> CAD & Software Proficiency</h3>
                         <div class="skill-list">
-                            <!-- IMPROVED: Each skill now includes proficiency label, brand icon, and tooltip -->
+                            <!-- Each skill item includes data-tooltip for description and aria-label -->
                             <div class="skill-item" data-tooltip="Expert in 3D modeling, assemblies, and sheet metal">
                                 <div class="skill-header">
-                                    <i class="fas fa-cube brand-icon"></i> <!-- SolidWorks icon -->
+                                    <i class="fas fa-cube brand-icon" aria-hidden="true"></i>
                                     <span><strong>SolidWorks</strong></span>
                                     <span class="skill-level">Expert</span>
                                 </div>
@@ -120,7 +121,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Advanced technical drawings and drafting">
                                 <div class="skill-header">
-                                    <i class="fas fa-drafting-compass brand-icon"></i> <!-- AutoCAD icon -->
+                                    <i class="fas fa-drafting-compass brand-icon" aria-hidden="true"></i>
                                     <span><strong>AutoCAD</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -129,7 +130,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="CNC programming support and toolpaths">
                                 <div class="skill-header">
-                                    <i class="fas fa-industry brand-icon"></i> <!-- Mastercam icon -->
+                                    <i class="fas fa-industry brand-icon" aria-hidden="true"></i>
                                     <span><strong>Mastercam</strong></span>
                                     <span class="skill-level">Intermediate</span>
                                 </div>
@@ -138,7 +139,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Parametric 3D modeling and design">
                                 <div class="skill-header">
-                                    <i class="fas fa-cubes brand-icon"></i> <!-- Inventor icon -->
+                                    <i class="fas fa-cubes brand-icon" aria-hidden="true"></i>
                                     <span><strong>Autodesk Inventor</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -147,7 +148,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Proficient in documentation and analysis">
                                 <div class="skill-header">
-                                    <i class="fas fa-file-excel brand-icon"></i> <!-- MS Office icon -->
+                                    <i class="fas fa-file-excel brand-icon" aria-hidden="true"></i>
                                     <span><strong>Microsoft Office Suite</strong></span>
                                     <span class="skill-level">Expert</span>
                                 </div>
@@ -156,7 +157,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Engineering data management">
                                 <div class="skill-header">
-                                    <i class="fas fa-database brand-icon"></i> <!-- Teamcenter icon -->
+                                    <i class="fas fa-database brand-icon" aria-hidden="true"></i>
                                     <span><strong>Teamcenter</strong></span>
                                     <span class="skill-level">Intermediate</span>
                                 </div>
@@ -168,11 +169,11 @@
 
                     <!-- Design & Engineering Skills -->
                     <div class="skill-category glass-card">
-                        <h3><i class="fas fa-cogs"></i> Design & Engineering Skills</h3>
+                        <h3><i class="fas fa-cogs" aria-hidden="true"></i> Design & Engineering Skills</h3>
                         <div class="skill-list">
                             <div class="skill-item" data-tooltip="From concept to production-ready drawings">
                                 <div class="skill-header">
-                                    <i class="fas fa-pencil-ruler brand-icon"></i>
+                                    <i class="fas fa-pencil-ruler brand-icon" aria-hidden="true"></i>
                                     <span><strong>Design Development</strong></span>
                                     <span class="skill-level">Expert</span>
                                 </div>
@@ -181,7 +182,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Clear, compliant documentation">
                                 <div class="skill-header">
-                                    <i class="fas fa-file-alt brand-icon"></i>
+                                    <i class="fas fa-file-alt brand-icon" aria-hidden="true"></i>
                                     <span><strong>Technical Documentation</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -190,7 +191,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="ASME/ISO standards expertise">
                                 <div class="skill-header">
-                                    <i class="fas fa-clipboard-check brand-icon"></i>
+                                    <i class="fas fa-clipboard-check brand-icon" aria-hidden="true"></i>
                                     <span><strong>Quality & Compliance</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -199,7 +200,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Efficient material selection and cost estimation">
                                 <div class="skill-header">
-                                    <i class="fas fa-calculator brand-icon"></i>
+                                    <i class="fas fa-calculator brand-icon" aria-hidden="true"></i>
                                     <span><strong>Material & Cost Estimation</strong></span>
                                     <span class="skill-level">Intermediate</span>
                                 </div>
@@ -211,11 +212,11 @@
 
                     <!-- Manufacturing & Technical Skills -->
                     <div class="skill-category glass-card">
-                        <h3><i class="fas fa-industry"></i> Manufacturing & Technical Skills</h3>
+                        <h3><i class="fas fa-industry" aria-hidden="true"></i> Manufacturing & Technical Skills</h3>
                         <div class="skill-list">
                             <div class="skill-item" data-tooltip="CNC setup, operation, and programming">
                                 <div class="skill-header">
-                                    <i class="fas fa-cogs brand-icon"></i>
+                                    <i class="fas fa-cogs brand-icon" aria-hidden="true"></i>
                                     <span><strong>CNC Machine Programming</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -224,7 +225,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Precision measurement and quality control">
                                 <div class="skill-header">
-                                    <i class="fas fa-ruler-combined brand-icon"></i>
+                                    <i class="fas fa-ruler-combined brand-icon" aria-hidden="true"></i>
                                     <span><strong>Measurement & Inspection</strong></span>
                                     <span class="skill-level">Expert</span>
                                 </div>
@@ -233,7 +234,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Experience with various materials">
                                 <div class="skill-header">
-                                    <i class="fas fa-hammer brand-icon"></i>
+                                    <i class="fas fa-hammer brand-icon" aria-hidden="true"></i>
                                     <span><strong>Material Fabrication</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -242,7 +243,7 @@
                             </div>
                             <div class="skill-item" data-tooltip="Cross-functional collaboration">
                                 <div class="skill-header">
-                                    <i class="fas fa-users-cog brand-icon"></i>
+                                    <i class="fas fa-users-cog brand-icon" aria-hidden="true"></i>
                                     <span><strong>Project Support</strong></span>
                                     <span class="skill-level">Advanced</span>
                                 </div>
@@ -256,10 +257,10 @@
 
             <!-- Soft Skills Section -->
             <section class="soft-skills-section">
-                <h2 class="section-title"><i class="fas fa-users"></i> Soft Skills</h2>
+                <h2 class="section-title"><i class="fas fa-users" aria-hidden="true"></i> Soft Skills</h2>
                 <div class="soft-skills-grid">
                     <div class="soft-skill-category glass-card">
-                        <h3><i class="fas fa-brain"></i> Analytical & Technical</h3>
+                        <h3><i class="fas fa-brain" aria-hidden="true"></i> Analytical & Technical</h3>
                         <div class="soft-skills-tags">
                             <span class="soft-skill-tag">Technical Analysis</span>
                             <span class="soft-skill-tag">Problem-Solving</span>
@@ -269,7 +270,7 @@
                         </div>
                     </div>
                     <div class="soft-skill-category glass-card">
-                        <h3><i class="fas fa-comments"></i> Communication & Teamwork</h3>
+                        <h3><i class="fas fa-comments" aria-hidden="true"></i> Communication & Teamwork</h3>
                         <div class="soft-skills-tags">
                             <span class="soft-skill-tag">Strong Verbal & Written Communication</span>
                             <span class="soft-skill-tag">Team Player</span>
@@ -278,7 +279,7 @@
                         </div>
                     </div>
                     <div class="soft-skill-category glass-card">
-                        <h3><i class="fas fa-rocket"></i> Work Ethic & Adaptability</h3>
+                        <h3><i class="fas fa-rocket" aria-hidden="true"></i> Work Ethic & Adaptability</h3>
                         <div class="soft-skills-tags">
                             <span class="soft-skill-tag">Reliable</span>
                             <span class="soft-skill-tag">Adaptability & Learning</span>
@@ -288,7 +289,7 @@
                         </div>
                     </div>
                     <div class="soft-skill-category glass-card">
-                        <h3><i class="fas fa-tasks"></i> Management & Organization</h3>
+                        <h3><i class="fas fa-tasks" aria-hidden="true"></i> Management & Organization</h3>
                         <div class="soft-skills-tags">
                             <span class="soft-skill-tag">Project Management</span>
                             <span class="soft-skill-tag">Multi-tasking</span>
@@ -304,10 +305,7 @@
     <!-- Footer loaded dynamically -->
     <div id="footer-container"></div>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-
-    <!-- Scripts -->
+    <!-- Scripts – order matters -->
     <script src="load-partials.js"></script>
     <script src="edu_skills_certificates.js"></script>
 </body>

@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.27922209838303713,
+                0.8392715177301151,
+                -0.4665386793199064,
+                0.0,
+                -0.7084542551626434,
+                0.5080272834685894,
+                0.4898988136273344,
+                0.0,
+                0.6481724987351112,
+                0.1937307378257629,
+                0.7364379220986436,
+                0.0,
+                0.19267771033968698,
+                0.06324048296291318,
+                0.2189157560899074,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Wheel"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.0698263964266254,
+                "ymag": 0.05395676087511963,
+                "zfar": 0.3888335364680965,
+                "znear": 0.25147775224242214
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 2970,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1165
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1166,
+            "type": "VEC3",
+            "min": [
+                -0.03173605725169182,
+                -0.0033019999973475933,
+                -0.03175000101327896
+            ],
+            "max": [
+                0.03173605725169182,
+                0.01460499968379736,
+                0.03175000101327896
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1166,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "defaultplastic",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6054843202491291,
+                    0.6523701237419859,
+                    0.8671355451331338,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.16999999880790712
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 11880,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 11880,
+            "byteLength": 13992,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 25872,
+            "byteLength": 13992,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Wheel.bin",
+            "byteLength": 39864
+        }
+    ]
+}

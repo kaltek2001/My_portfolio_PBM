@@ -1,0 +1,230 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.5268639011934901,
+                -0.3249940337476831,
+                0.7853618959738156,
+                0.0,
+                0.09667559886249005,
+                0.9409274645154705,
+                0.32451399831912836,
+                0.0,
+                -0.8444336908270271,
+                -0.09504937952926432,
+                0.5271597075340134,
+                0.0,
+                -0.12944410316693405,
+                -0.016134101359338196,
+                0.08948241636121132,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Shoulder Bolt"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.04169216386036038,
+                "ymag": 0.032216672073914834,
+                "zfar": 0.19972044035251826,
+                "znear": 0.1547564028765531
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5
+                    },
+                    "indices": 3,
+                    "material": 1,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 2259,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                876
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 877,
+            "type": "VEC3",
+            "min": [
+                -4.336808689942018e-19,
+                -0.0039750998839735985,
+                -0.00396398501470685
+            ],
+            "max": [
+                0.027787599712610245,
+                0.0039750998839735985,
+                0.00396398501470685
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 877,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 9036,
+            "componentType": 5125,
+            "count": 183,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                62
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 10524,
+            "componentType": 5126,
+            "count": 63,
+            "type": "VEC3",
+            "min": [
+                0.023647399619221687,
+                -0.0020828000269830227,
+                -0.002071390161290765
+            ],
+            "max": [
+                0.027315160259604454,
+                0.0020828000269830227,
+                0.0020828000269830227
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 10524,
+            "componentType": 5126,
+            "count": 63,
+            "type": "VEC3",
+            "min": [
+                -1.560699233474431e-17,
+                -1.0,
+                -0.9945219159126282
+            ],
+            "max": [
+                1.560699233474431e-17,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishstainlesssteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    0.8912620430916338,
+                    0.8122415004576116,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        },
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 9768,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 9768,
+            "byteLength": 11280,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 21048,
+            "byteLength": 11280,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Shoulder Bolt.bin",
+            "byteLength": 32328
+        }
+    ]
+}

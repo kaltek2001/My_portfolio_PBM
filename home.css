@@ -1,5 +1,5 @@
 /* ===== ENHANCED HOME.CSS ===== */
-/* Senior front-end upgrade – dark futuristic theme with cyan accents */
+/* Only home page content styles – header/footer removed */
 
 /* ---------- CSS Variables (Color System) ---------- */
 :root {
@@ -55,76 +55,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   font-weight: 600;
   text-transform: uppercase;
-}
-
-/* ---------- Header Navigation ---------- */
-.main-header {
-  background: rgba(16, 18, 40, 0.9);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 0 40px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-decoration: none;
-  letter-spacing: 2px;
-  transition: text-shadow 0.3s ease;
-}
-
-.logo:hover {
-  text-shadow: 0 0 15px var(--glow-cyan);
-}
-
-.main-nav {
-  display: flex;
-  gap: 40px;
-}
-
-.nav-link {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: var(--secondary);
-  background: rgba(0, 212, 255, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px var(--glow-cyan);
-}
-
-.nav-link.active {
-  color: var(--secondary);
-  border-bottom: 2px solid var(--secondary);
-}
-
-/* Focus states for accessibility */
-.nav-link:focus-visible,
-button:focus-visible,
-.orbit-item:focus-visible {
-  outline: 2px solid var(--secondary);
-  outline-offset: 4px;
-  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
 }
 
 /* ---------- Top Header ---------- */
@@ -276,7 +206,7 @@ button:focus-visible,
   border: 2px dashed var(--border-subtle);
   transform: translate(-50%, -50%);
   z-index: 1;
-  opacity: 0.6; /* reduced opacity */
+  opacity: 0.6;
 }
 
 .orbit-circle.inner {
@@ -400,181 +330,6 @@ button:focus-visible,
   100% { opacity: 0.9; transform: scale(1.3); }
 }
 
-/* ---------- Footer (Consistent with Header) ---------- */
-.main-footer {
-  background: rgba(16, 18, 40, 0.9);
-  backdrop-filter: blur(18px);
-  padding: 40px 0 20px;
-  border-top: 1px solid var(--border-subtle);
-  position: relative;
-  z-index: 10;
-  margin-top: 40px;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-brand {
-  flex: 1;
-  min-width: 300px;
-}
-
-.footer-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 15px;
-  display: inline-block;
-  text-decoration: none;
-  transition: text-shadow 0.3s ease;
-}
-
-.footer-logo:hover {
-  text-shadow: 0 0 15px var(--glow-cyan);
-}
-
-.footer-tagline {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.social-link {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(154, 164, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 1.3rem;
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-subtle);
-}
-
-.social-link:hover {
-  background: var(--secondary);
-  color: var(--bg-base);
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px var(--glow-cyan);
-  border-color: var(--secondary);
-}
-
-.footer-links {
-  display: flex;
-  flex: 2;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.footer-column h3 {
-  color: var(--primary);
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 10px;
-  font-family: var(--font-heading);
-}
-
-.footer-column h3:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--secondary);
-}
-
-.footer-column ul {
-  list-style: none;
-}
-
-.footer-column li {
-  margin-bottom: 10px;
-}
-
-.footer-column a {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.footer-column a:hover {
-  color: var(--secondary);
-  transform: translateX(5px);
-  text-shadow: 0 0 8px var(--glow-cyan);
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.copyright {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.footer-bottom-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-bottom-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.footer-bottom-links a:hover {
-  color: var(--secondary);
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.contact-icon {
-  color: var(--secondary);
-  font-size: 1.2rem;
-}
-
 /* ---------- Modal (Enhanced) ---------- */
 .modal {
   display: none;
@@ -696,16 +451,6 @@ button:focus-visible,
 }
 
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px 0;
-  }
-  .main-nav {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
   .top-header h1 {
     font-size: 2.5rem;
     letter-spacing: 4px;
@@ -738,17 +483,6 @@ button:focus-visible,
   .right-area {
     margin-bottom: 20px;
   }
-  .footer-top {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .footer-links {
-    width: 100%;
-    justify-content: flex-start;
-  }
-  .footer-column {
-    min-width: 200px;
-  }
   /* Reduce glow intensity on mobile */
   .orbit-item,
   .center-circle {
@@ -757,9 +491,6 @@ button:focus-visible,
 }
 
 @media (max-width: 550px) {
-  .main-header {
-    padding: 0 20px;
-  }
   .top-header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
@@ -793,11 +524,6 @@ button:focus-visible,
   .right-panel {
     padding: 20px;
   }
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
 }
 
 @media (max-width: 400px) {
@@ -820,13 +546,24 @@ button:focus-visible,
   }
 }
 
-/* ---------- Focus visible utility (add to body if needed) ---------- */
-/* Ensure focus styles are visible */
+/* ---------- Focus visible utility ---------- */
 :focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Add this class to the body if you want to enable JS-based focus detection */
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .orbit-item,
+  .center-circle,
+  .star {
+    animation: none !important;
+  }
 }

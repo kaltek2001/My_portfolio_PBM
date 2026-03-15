@@ -1,122 +1,429 @@
-// assemblies.js - Specific to Assemblies page using data.js
-
-// DOM Elements specific to assemblies page
 const assembliesGrid = document.getElementById('assemblies-grid');
 const detailModal = document.getElementById('detail-modal');
-const detailModalContent = document.getElementById('detail-modal-content');
+const errorState = document.getElementById('error-state');
 
-// Initialize the assemblies page
-document.addEventListener('DOMContentLoaded', function() {
+let currentItem = null;
+let currentType = null;
+let lastFocusedElement = null;
+let currentIndex = 0;
+let keyboardListener = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAssemblies();
+});
+
+function initializeAssemblies() {
     if (!window.assembliesData || assembliesData.length === 0) {
         console.error("No assemblies data found in data.js");
+        showError('No assemblies data available');
         return;
     }
 
     loadAssemblies();
-    setupAssembliesEventListeners();
-});
+}
 
 function loadAssemblies() {
-    assembliesGrid.innerHTML = '';
+    try {
+        assembliesGrid.innerHTML = '';
+        hideError();
 
-    assembliesData.forEach(assembly => {
-        const assemblyCard = document.createElement('div');
-        assemblyCard.className = 'item-card';
-        assemblyCard.innerHTML = `
-            <img src="${assembly.thumbnail}" alt="${assembly.title}" class="item-image">
-            <div class="item-title">
-                <h3>${assembly.title}</h3>
-            </div>
-        `;
-
-        assemblyCard.addEventListener('click', () => showAssemblyDetail(assembly));
-
-        assembliesGrid.appendChild(assemblyCard);
-    });
-}
-
-function setupAssembliesEventListeners() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navMenu = document.getElementById('nav-links');
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+        assembliesData.forEach(assembly => {
+            const card = createAssemblyCard(assembly);
+            assembliesGrid.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading assemblies:', error);
+        showError('Failed to load assemblies');
     }
 }
 
-function showAssemblyDetail(assembly) {
-    detailModalContent.innerHTML = generateDetailContent(assembly);
-    detailModal.classList.add('active');
-    setupDetailEventListeners();
-}
-
-function generateDetailContent(item) {
-    const hasImages = item.images && item.images.length > 0;
-    const hasVideos = item.videos && item.videos.length > 0;
-    const hasDrawing = item.drawing && item.drawing.trim() !== '';
-    const hasModel3d = item.model3d && item.model3d.trim() !== '';
-
-    let content = `
-        <div class="detail-container">
-            <button class="back-button" id="detail-back-button">
-                <i class="fas fa-arrow-left"></i> Back to Assemblies
-            </button>
-            
-            <div class="detail-title">
-                <h1>${item.title}</h1>
-            </div>
-            
-            <div class="media-grid">
+function createAssemblyCard(assembly) {
+    const card = document.createElement('div');
+    
+    card.className = 'item-card';
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View details for ${assembly.title}`);
+    card.dataset.title = assembly.title;
+    
+    card.innerHTML = `
+        <img src="${assembly.thumbnail}" 
+             class="item-image" 
+             alt="${assembly.title}"
+             loading="lazy">
+        <div class="item-title">
+            <h3>${assembly.title}</h3>
+        </div>
     `;
 
-    if (hasImages) {
-        item.images.forEach((image, index) => {
-            content += `
-                <div class="media-item" data-type="image" data-index="${index}">
-                    <img src="${image}" alt="${item.title} - Image ${index + 1}">
-                </div>
-            `;
-        });
-    }
+    card.addEventListener('click', () => showAssemblyDetail(assembly));
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showAssemblyDetail(assembly);
+        }
+    });
 
-    if (hasVideos) {
-        item.videos.forEach((video, index) => {
-            content += `
-                <div class="media-item" data-type="video" data-index="${index}">
-                    <video>
-                        <source src="${video}" type="video/mp4">
-                    </video>
-                    <div class="video-overlay">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-            `;
-        });
-    }
-
-    if (!hasImages && !hasVideos) {
-        content += `
-            <div class="media-item">
-                <div class="media-placeholder">
-                    <i class="fas fa-image"></i>
-                    <p>No images or videos available</p>
-                </div>
-            </div>
-        `;
-    }
-
-    content += `<div class="action-buttons">`;
-
-    if (hasImages) content += `<button class="action-btn images" data-action="images"><i class="fas fa-images"></i> Images</button>`;
-    if (hasVideos) content += `<button class="action-btn videos" data-action="videos"><i class="fas fa-video"></i> Videos</button>`;
-    if (hasDrawing) content += `<button class="action-btn drawing" data-action="drawing" data-file="${item.drawing}"><i class="fas fa-file-pdf"></i> Drawing</button>`;
-    if (hasModel3d) content += `<button class="action-btn model" data-action="model" data-file="${item.model3d}"><i class="fas fa-cube"></i> 3D Model</button>`;
-
-    content += `</div></div>`;
-    return content;
+    return card;
 }
 
-function setupDetailEventListeners() {
-    const backButton = document.getElementById('detail-back-button');
-    if (backButton) backButton.addEventListener('click', () => detailModal.classList.remove('active'));
+function showAssemblyDetail(item) {
+    lastFocusedElement = document.activeElement;
+    
+    currentItem = {
+        ...item,
+        images: item.images || [],
+        videos: item.videos || [],
+        drawing: item.drawing || [],
+        model3d: item.model3d || []
+    };
+    
+    currentIndex = 0;
+    currentType = determineInitialMediaType(currentItem);
+    
+    populateModalContent();
+    
+    detailModal.classList.add('active');
+    detailModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    
+    setupModalEventListeners();
+    
+    setTimeout(() => {
+        const firstFocusable = document.querySelector('.action-btn, .back-button, .modal-close');
+        if (firstFocusable) {
+            firstFocusable.focus();
+        } else {
+            document.querySelector('.detail-modal-content')?.focus();
+        }
+    }, 100);
+}
+
+function determineInitialMediaType(item) {
+    if (item.model3d.length) return 'model';
+    if (item.images.length) return 'images';
+    if (item.videos.length) return 'videos';
+    if (item.drawing.length) return 'pdf';
+    return null;
+}
+
+function populateModalContent() {
+    const modalContent = document.querySelector('.detail-modal-content');
+    
+    modalContent.innerHTML = `
+        <button class="back-button" id="detail-back-button" aria-label="Go back">← Back</button>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+        
+        <h2 class="detail-title" id="detail-title">${currentItem.title}</h2>
+        
+        <div class="action-buttons" id="action-buttons">
+            ${createActionButtons()}
+        </div>
+        
+        <div class="viewer-section">
+            <div id="preview-container" class="media-grid"></div>
+        </div>
+        
+        <div class="media-toolbar" id="media-toolbar"></div>
+    `;
+}
+
+function createActionButtons() {
+    const buttons = [];
+    const types = [
+        { type: 'images', label: 'Images', count: currentItem.images.length },
+        { type: 'videos', label: 'Videos', count: currentItem.videos.length },
+        { type: 'pdf', label: 'Drawing', count: currentItem.drawing.length },
+        { type: 'model', label: '3D Models', count: currentItem.model3d.length }
+    ];
+    
+    types.forEach(({ type, label, count }) => {
+        if (count > 0) {
+            const activeClass = currentType === type ? 'active' : '';
+            const ariaCurrent = currentType === type ? 'true' : 'false';
+            buttons.push(
+                `<button class="action-btn ${activeClass}" data-type="${type}" aria-current="${ariaCurrent}">${label} (${count})</button>`
+            );
+        }
+    });
+    
+    return buttons.join('');
+}
+
+function renderCurrentMedia() {
+    const container = document.getElementById('preview-container');
+    const toolbar = document.getElementById('media-toolbar');
+    
+    if (!container || !toolbar) return;
+    
+    container.innerHTML = '';
+    toolbar.innerHTML = '';
+    
+    const mediaArray = getMediaArray();
+    
+    if (!mediaArray.length) {
+        showNoMediaMessage(container);
+        return;
+    }
+    
+    currentIndex = Math.max(0, Math.min(currentIndex, mediaArray.length - 1));
+    
+    const mediaElement = createMediaElement(mediaArray[currentIndex]);
+    const wrapper = createMediaWrapper(mediaElement, mediaArray.length);
+    
+    container.appendChild(wrapper);
+    
+    addToolbarControls(toolbar, mediaArray.length);
+}
+
+function getMediaArray() {
+    switch (currentType) {
+        case 'images': return currentItem.images;
+        case 'videos': return currentItem.videos;
+        case 'pdf': return currentItem.drawing;
+        case 'model': return currentItem.model3d;
+        default: return [];
+    }
+}
+
+function createMediaElement(src) {
+    switch (currentType) {
+        case 'images':
+            return createImageElement(src);
+        case 'videos':
+            return createVideoElement(src);
+        case 'pdf':
+            return createPdfElement(src);
+        case 'model':
+            return createModelElement(src);
+        default:
+            const div = document.createElement('div');
+            div.className = 'no-media-message';
+            div.textContent = 'Unsupported media type';
+            return div;
+    }
+}
+
+function createImageElement(src) {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'media-item';
+    img.alt = 'Assembly image';
+    img.loading = 'lazy';
+    return img;
+}
+
+function createVideoElement(src) {
+    const video = document.createElement('video');
+    video.src = src;
+    video.controls = true;
+    video.className = 'media-item';
+    video.preload = 'metadata';
+    return video;
+}
+
+function createPdfElement(src) {
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.className = 'media-item';
+    iframe.title = 'PDF Document';
+    iframe.setAttribute('aria-label', 'PDF viewer');
+    return iframe;
+}
+
+function createModelElement(src) {
+    const modelViewer = document.createElement('model-viewer');
+    
+    modelViewer.src = src;
+    modelViewer.setAttribute('camera-controls', '');
+    modelViewer.setAttribute('auto-rotate', '');
+    modelViewer.setAttribute('shadow-intensity', '1');
+    modelViewer.setAttribute('ar', '');
+    modelViewer.setAttribute('alt', `3D model of ${currentItem.title}`);
+    modelViewer.className = 'media-item';
+    
+    return modelViewer;
+}
+
+function createMediaWrapper(mediaElement, totalItems) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'media-wrapper';
+    wrapper.appendChild(mediaElement);
+    
+    if (totalItems > 1) {
+        const navLeft = createNavButton('left', '◀', () => changeMedia(-1));
+        const navRight = createNavButton('right', '▶', () => changeMedia(1));
+        
+        wrapper.appendChild(navLeft);
+        wrapper.appendChild(navRight);
+    }
+    
+    return wrapper;
+}
+
+function createNavButton(direction, icon, clickHandler) {
+    const button = document.createElement('button');
+    button.className = `media-nav ${direction}`;
+    button.innerHTML = icon;
+    button.setAttribute('aria-label', `Show previous ${currentType}`);
+    button.onclick = clickHandler;
+    return button;
+}
+
+function addToolbarControls(toolbar, totalItems) {
+    // Add counter
+    const counter = document.createElement('span');
+    counter.className = 'model-counter';
+    counter.textContent = `${currentIndex + 1} / ${totalItems}`;
+    toolbar.appendChild(counter);
+    
+    // Add fullscreen button for all media types
+    const fsBtn = document.createElement('button');
+    fsBtn.textContent = '⛶ Fullscreen';
+    fsBtn.setAttribute('aria-label', 'View in fullscreen');
+    fsBtn.onclick = toggleFullscreen;
+    toolbar.appendChild(fsBtn);
+    
+    // Add AR button only for models
+    if (currentType === 'model') {
+        const arBtn = document.createElement('button');
+        arBtn.textContent = '📱 AR';
+        arBtn.setAttribute('aria-label', 'View in augmented reality');
+        arBtn.onclick = () => {
+            const modelViewer = document.querySelector('model-viewer');
+            if (modelViewer) modelViewer.activateAR();
+        };
+        toolbar.appendChild(arBtn);
+    }
+}
+
+function toggleFullscreen() {
+    const mediaElement = document.querySelector('.media-item');
+    if (!mediaElement) return;
+    
+    if (mediaElement.requestFullscreen) {
+        mediaElement.requestFullscreen();
+    } else if (mediaElement.webkitRequestFullscreen) {
+        mediaElement.webkitRequestFullscreen();
+    } else if (mediaElement.msRequestFullscreen) {
+        mediaElement.msRequestFullscreen();
+    } else {
+        const wrapper = mediaElement.closest('.media-wrapper');
+        if (wrapper) {
+            if (wrapper.requestFullscreen) {
+                wrapper.requestFullscreen();
+            } else if (wrapper.webkitRequestFullscreen) {
+                wrapper.webkitRequestFullscreen();
+            } else if (wrapper.msRequestFullscreen) {
+                wrapper.msRequestFullscreen();
+            }
+        }
+    }
+}
+
+function showNoMediaMessage(container) {
+    const message = document.createElement('div');
+    message.className = 'no-media-message';
+    message.textContent = 'No media available for this type';
+    container.appendChild(message);
+}
+
+function changeMedia(direction) {
+    const mediaArray = getMediaArray();
+    if (!mediaArray.length) return;
+    
+    currentIndex = (currentIndex + direction + mediaArray.length) % mediaArray.length;
+    renderCurrentMedia();
+}
+
+function setupModalEventListeners() {
+    if (keyboardListener) {
+        document.removeEventListener('keydown', keyboardListener);
+    }
+    
+    const backBtn = document.getElementById('detail-back-button');
+    if (backBtn) backBtn.onclick = closeModal;
+    
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (closeBtn) closeBtn.onclick = closeModal;
+    
+    document.querySelectorAll('.action-btn').forEach(btn => {
+        btn.onclick = () => {
+            currentType = btn.dataset.type;
+            currentIndex = 0;
+            
+            document.querySelectorAll('.action-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-current', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-current', 'true');
+            
+            renderCurrentMedia();
+        };
+    });
+    
+    keyboardListener = (e) => {
+        if (!detailModal.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                e.preventDefault();
+                closeModal();
+                break;
+            case 'ArrowRight':
+                e.preventDefault();
+                changeMedia(1);
+                break;
+            case 'ArrowLeft':
+                e.preventDefault();
+                changeMedia(-1);
+                break;
+        }
+    };
+    
+    document.addEventListener('keydown', keyboardListener);
+    
+    detailModal.onclick = (e) => {
+        if (e.target === detailModal) {
+            closeModal();
+        }
+    };
+}
+
+function closeModal() {
+    detailModal.classList.remove('active');
+    detailModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+    
+    if (keyboardListener) {
+        document.removeEventListener('keydown', keyboardListener);
+        keyboardListener = null;
+    }
+}
+
+function showError(message = 'Failed to load assemblies') {
+    if (errorState) {
+        errorState.hidden = false;
+        const messageEl = errorState.querySelector('p');
+        if (messageEl) messageEl.textContent = message;
+    }
+}
+
+function hideError() {
+    if (errorState) {
+        errorState.hidden = true;
+    }
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        createAssemblyCard,
+        determineInitialMediaType,
+        changeMedia
+    };
 }

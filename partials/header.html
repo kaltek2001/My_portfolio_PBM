@@ -1,10 +1,10 @@
-<!-- THIS IS THE ACTIVE HEADER -->
+<!-- ===== PROFESSIONAL HEADER WITH ACCESSIBLE NAVIGATION ===== -->
 <header class="professional-header">
     <div class="main-navigation">
         <div class="container">
             <a href="home.html" class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-cogs"></i>
+                    <i class="fas fa-cogs" aria-hidden="true"></i>
                 </div>
                 <div class="logo-text">
                     <span class="logo-name">Prashant Budha Magar</span>
@@ -12,50 +12,61 @@
                 </div>
             </a>
 
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <!-- Mobile menu toggle with ARIA attributes -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle"
+                    aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
-            <nav class="nav-menu" id="nav-menu">
+            <!-- Main navigation menu -->
+            <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="home.html" class="nav-link">
-                            <i class="fas fa-home"></i>
+                            <i class="fas fa-home" aria-hidden="true"></i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="components.html" class="nav-link">
-                            <i class="fas fa-cube"></i>
+
+                    <!-- Dropdown item with improved accessibility -->
+                    <li class="nav-item dropdown" id="cad-dropdown">
+                        <a href="components.html" class="nav-link dropdown-trigger"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           aria-controls="dropdown-menu-cad">
+                            <i class="fas fa-cube" aria-hidden="true"></i>
                             <span>CAD Portfolio</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                            <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="components.html" class="dropdown-item">
-                                <i class="fas fa-cube"></i> CAD Components
+                        <div class="dropdown-menu" id="dropdown-menu-cad" role="menu" aria-label="CAD Portfolio submenu">
+                            <a href="components.html" class="dropdown-item" role="menuitem">
+                                <i class="fas fa-cube" aria-hidden="true"></i> CAD Components
                             </a>
-                            <a href="assemblies.html" class="dropdown-item">
-                                <i class="fas fa-shapes"></i> CAD Assemblies
+                            <a href="assemblies.html" class="dropdown-item" role="menuitem">
+                                <i class="fas fa-shapes" aria-hidden="true"></i> CAD Assemblies
                             </a>
                         </div>
                     </li>
+
                     <li class="nav-item">
                         <a href="experiences.html" class="nav-link">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
                             <span>Experience</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="edu_skills_certificates.html" class="nav-link">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                             <span>Education & Skills</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="contact.html" class="nav-link contact-btn">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                             <span>Contact</span>
                         </a>
                     </li>
@@ -63,4 +74,148 @@
             </nav>
         </div>
     </div>
+
+    <!-- JavaScript for mobile menu and dropdown (encapsulated) -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Wait for DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // Elements
+                const toggleButton = document.getElementById('mobile-menu-toggle');
+                const navMenu = document.getElementById('nav-menu');
+                const dropdownTrigger = document.querySelector('.dropdown-trigger');
+                const dropdown = document.querySelector('.dropdown');
+                const dropdownMenu = document.getElementById('dropdown-menu-cad');
+
+                if (!toggleButton || !navMenu) return;
+
+                // --- Mobile menu toggle ---
+                function toggleMobileMenu(force) {
+                    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                    const newState = force !== undefined ? force : !isExpanded;
+
+                    toggleButton.classList.toggle('active', newState);
+                    navMenu.classList.toggle('active', newState);
+                    toggleButton.setAttribute('aria-expanded', newState);
+                }
+
+                toggleButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+                        toggleMobileMenu(false);
+                    }
+                });
+
+                // Close menu on Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        toggleMobileMenu(false);
+                        toggleButton.focus();
+                    }
+                });
+
+                // --- Dropdown (keyboard and touch support) ---
+                if (dropdownTrigger && dropdown && dropdownMenu) {
+                    let isDropdownOpen = false;
+
+                    function openDropdown() {
+                        dropdown.classList.add('active');
+                        dropdownTrigger.setAttribute('aria-expanded', 'true');
+                        isDropdownOpen = true;
+                    }
+
+                    function closeDropdown() {
+                        dropdown.classList.remove('active');
+                        dropdownTrigger.setAttribute('aria-expanded', 'false');
+                        isDropdownOpen = false;
+                    }
+
+                    // Toggle on click (for touch devices and mouse)
+                    dropdownTrigger.addEventListener('click', function(e) {
+                        // If on desktop, we still want click to open/close without navigating
+                        e.preventDefault(); // Prevent navigation only when toggling
+                        if (isDropdownOpen) {
+                            closeDropdown();
+                        } else {
+                            openDropdown();
+                        }
+                    });
+
+                    // Handle hover for desktop (optional, but we keep it for UX)
+                    dropdown.addEventListener('mouseenter', openDropdown);
+                    dropdown.addEventListener('mouseleave', closeDropdown);
+
+                    // Keyboard navigation
+                    dropdownTrigger.addEventListener('keydown', function(e) {
+                        // Enter or Space toggles dropdown
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            if (isDropdownOpen) {
+                                closeDropdown();
+                            } else {
+                                openDropdown();
+                                // Focus first menu item
+                                const firstItem = dropdownMenu.querySelector('.dropdown-item');
+                                if (firstItem) firstItem.focus();
+                            }
+                        }
+                        // Down arrow opens and moves to first item
+                        if (e.key === 'ArrowDown' && !isDropdownOpen) {
+                            e.preventDefault();
+                            openDropdown();
+                            const firstItem = dropdownMenu.querySelector('.dropdown-item');
+                            if (firstItem) firstItem.focus();
+                        }
+                        // Up arrow opens and moves to last item (if open)
+                        if (e.key === 'ArrowUp' && !isDropdownOpen) {
+                            e.preventDefault();
+                            openDropdown();
+                            const items = dropdownMenu.querySelectorAll('.dropdown-item');
+                            if (items.length) items[items.length - 1].focus();
+                        }
+                    });
+
+                    // Trap focus inside dropdown when open
+                    dropdownMenu.addEventListener('keydown', function(e) {
+                        const items = Array.from(dropdownMenu.querySelectorAll('.dropdown-item'));
+                        if (!items.length) return;
+
+                        const first = items[0];
+                        const last = items[items.length - 1];
+
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            const currentIndex = items.indexOf(document.activeElement);
+                            const next = items[currentIndex + 1] || first;
+                            next.focus();
+                        }
+                        if (e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            const currentIndex = items.indexOf(document.activeElement);
+                            const prev = items[currentIndex - 1] || last;
+                            prev.focus();
+                        }
+                        if (e.key === 'Escape') {
+                            closeDropdown();
+                            dropdownTrigger.focus();
+                        }
+                    });
+
+                    // Close when focus leaves dropdown (blur)
+                    dropdown.addEventListener('focusout', function(e) {
+                        if (!dropdown.contains(e.relatedTarget)) {
+                            closeDropdown();
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
 </header>

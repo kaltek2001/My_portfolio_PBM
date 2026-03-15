@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Mechanical Portfolio</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome with Subresource Integrity (replace with actual hash) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-ys4E4c8D7zI6jPC9rk0ZxPx0VvQw3/HqC6+KFZ3JN3mD8T8X3yN8HFAJzB6B+E2vLkB9RcU5Q0nFpS0kA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
   <!-- Global CSS for header/footer -->
   <link rel="stylesheet" href="global.css">
   <!-- Your existing home.css -->
@@ -19,11 +22,12 @@
   <div class="top-header">
     <h1>PORTFOLIO</h1>
     <div class="subtitle">MECHANICAL ENGINEERING TECHNICIAN</div>
-  </div>
+  </div>`
 
   <!-- Main Content - Side by Side (keep everything same) -->
   <main class="layout">
-    <div class="decoration" id="stars"></div>
+    <!-- Star field container – hidden from screen readers -->
+    <div class="decoration" id="stars" aria-hidden="true"></div>
 
     <!-- Left Side - Circular Menu -->
     <section class="left-area">
@@ -31,13 +35,15 @@
         <div class="orbit-circle"></div>
         <div class="orbit-circle inner"></div>
         <div class="orbit-circle outer"></div>
-        <div class="center-circle">PROJECTS</div>
+        <!-- Center circle made interactive -->
+        <div class="center-circle" tabindex="0" role="button" aria-label="Projects Portfolio" data-label="Projects Portfolio">PROJECTS</div>
         <div class="orbit">
-          <div class="orbit-item" data-target="components.html">CAD<br>Components</div>
-          <div class="orbit-item" data-target="assemblies.html">CAD<br>Assemblies</div>
-          <div class="orbit-item" data-target="experiences.html">Experiences</div>
-          <div class="orbit-item" data-target="edu_skills_certificates.html">Edu-Skills-Cert</div>
-          <div class="orbit-item" data-target="contact.html">Contact</div>
+          <!-- Orbit items with data-label for consistent lookup -->
+          <div class="orbit-item" data-target="components.html" data-label="CAD Components" tabindex="0" role="button" aria-label="CAD Components">CAD<br>Components</div>
+          <div class="orbit-item" data-target="assemblies.html" data-label="CAD Assemblies" tabindex="0" role="button" aria-label="CAD Assemblies">CAD<br>Assemblies</div>
+          <div class="orbit-item" data-target="experiences.html" data-label="Experiences" tabindex="0" role="button" aria-label="Experiences">Experiences</div>
+          <div class="orbit-item" data-target="edu_skills_certificates.html" data-label="Edu-Skills-Cert" tabindex="0" role="button" aria-label="Education, Skills & Certifications">Edu-Skills-Cert</div>
+          <div class="orbit-item" data-target="contact.html" data-label="Contact" tabindex="0" role="button" aria-label="Contact">Contact</div>
         </div>
       </div>
     </section>
@@ -57,19 +63,18 @@
           automotive and aerospace components.
         </p>
       </div>
-      </div>
     </aside>
   </main>
 
   <!-- Footer without quick links and services -->
   <div id="footer-container"></div>
 
-  <!-- Project Detail Modal -->
-  <div class="modal" id="projectModal">
+  <!-- Project Detail Modal (accessibility improvements) -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title">Project Details</h2>
-        <button class="close-modal" id="closeModal">&times;</button>
+        <h2 class="modal-title" id="modalTitle">Project Details</h2>
+        <button class="close-modal" id="closeModal" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">
         <div class="modal-image" id="modalImage">
@@ -83,7 +88,7 @@
   <!-- Load Header and Footer -->
   <script src="load-partials.js"></script>
 
-  <!-- Your existing home.js -->
+  <!-- Your existing home.js (updated) -->
   <script src="home.js"></script>
 </body>
 </html>

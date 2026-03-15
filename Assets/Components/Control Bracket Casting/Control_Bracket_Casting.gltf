@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.9981939219869582,
+                -0.049336365689093546,
+                0.03427560544887269,
+                0.0,
+                0.05082838807110805,
+                0.9977325737674375,
+                -0.04411560052291951,
+                0.0,
+                -0.032021384641948224,
+                0.04577809808191041,
+                0.9984382788443238,
+                0.0,
+                0.027679365068480913,
+                0.08714357601558705,
+                0.6219120638958999,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Control Bracket Casting"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.14249775424063385,
+                "ymag": 0.11011190100412614,
+                "zfar": 0.8502456830614485,
+                "znear": 0.5092044129527776
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 9924,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                4537
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4538,
+            "type": "VEC3",
+            "min": [
+                -0.044449999928474426,
+                -2.0816681711721685e-17,
+                -0.03175000101327896
+            ],
+            "max": [
+                0.1396999955177307,
+                0.11725818365812302,
+                0.03175000101327896
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4538,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "mattesteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.38891028388129995,
+                    0.3488648621678924,
+                    0.31118052762160187,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.5
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 39696,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 39696,
+            "byteLength": 54456,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 94152,
+            "byteLength": 54456,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Control Bracket Casting.bin",
+            "byteLength": 148608
+        }
+    ]
+}

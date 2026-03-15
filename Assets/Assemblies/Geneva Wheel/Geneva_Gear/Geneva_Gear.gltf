@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.8490915255228073,
+                0.3327008827104162,
+                -0.4103092783852951,
+                0.0,
+                -0.25507329572490944,
+                0.4219582249018852,
+                0.8699936035659589,
+                0.0,
+                0.462581014627043,
+                0.8433631359511512,
+                -0.27341804224530514,
+                0.0,
+                0.13124429480773128,
+                0.2391534644911478,
+                -0.07757464532159442,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Geneva Gear"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.058764203562438076,
+                "ymag": 0.04540870275279306,
+                "zfar": 0.4045716066190381,
+                "znear": 0.22329682110994764
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 4512,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1931
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1932,
+            "type": "VEC3",
+            "min": [
+                -0.044272005558013916,
+                -0.006603999994695187,
+                -0.04061046615242958
+            ],
+            "max": [
+                0.044272005558013916,
+                0.00634999992325902,
+                0.04061046615242958
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1932,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "polishedbrass",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6592240098396633,
+                    0.4098257653065932,
+                    0.011126083727873971,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.07000000476837158
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 18048,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 18048,
+            "byteLength": 23184,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 41232,
+            "byteLength": 23184,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Geneva Gear.bin",
+            "byteLength": 64416
+        }
+    ]
+}

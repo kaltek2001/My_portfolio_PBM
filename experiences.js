@@ -1,53 +1,21 @@
-// ========== EXPERIENCE DATA ==========
-const experiencesData = [
-    {
-        title: "CNC Operator/Programmer",
-        company: "Protectolite Composites Inc.",
-        location: "North York, ON",
-        startDate: "2025-01-01",
-        endDate: null,
-        tools: ["G-Code", "CNC Machining", "Calipers", "Micrometers", "FRP Composites", "Quality Control"],
-        responsibilities: [
-            "Program and operate CNC machine using G-code to manufacture precision parts from FRP (Fiberglass Reinforced Plastic) sheets and composite materials.",
-            "Produce high-quality components for wastewater systems, electrical insulation applications, and custom vehicle parts, meeting tight tolerances and client specifications.",
-            "Interpret engineering drawings, CAD models, and Bills of Materials (BOMs) to plan and execute accurate machining operations.",
-            "Perform dimensional inspections using calipers, micrometers, and height gauges, documenting all quality assurance results to maintain production standards.",
-            "Collaborate with engineers and production teams to resolve machining challenges, optimize tool paths, and support continuous improvement initiatives.",
-            "Maintain a safe, organized, and compliant work environment, ensuring efficient operation of all CNC and shop equipment."
-        ]
-        // achievements removed
-    },
-    {
-        title: "Design Assistant (Part-Time)",
-        company: "Kris Design & Build",
-        location: "Scarborough, ON, Canada",
-        startDate: "2024-06-01",
-        endDate: "2024-12-31",
-        tools: ["AutoCAD", "Architectural Drawings", "Client Collaboration", "Version Control", "Material Selection"],
-        responsibilities: [
-            "Created precise 2D architectural drawings in AutoCAD, adhering to industry standards and project specifications.",
-            "Collaborated with clients and multidisciplinary design teams to integrate feedback and recommend materials and finishes that enhance design functionality and aesthetic quality.",
-            "Managed and organized design documentation, including specifications, drawing versions, and schedules, ensuring project consistency.",
-            "Supported project delivery and client satisfaction through effective timeline coordination and cross-functional communication.",
-            "Maintained compliance with regulatory guidelines and quality standards through consistent version control and internal review processes."
-        ]
-        // achievements removed
-    },
-    {
-        title: "Tool Crib Attendant (Machine Shop)",
-        company: "Centennial College",
-        location: "Scarborough, ON, Canada",
-        startDate: "2023-01-01",
-        endDate: "2023-04-30",
-        tools: ["Inventory Management", "Tool Inspection", "Safety Compliance", "Data Reporting", "Procurement"],
-        responsibilities: [
-            "Maintained precise inventory records, performed regular audits, and managed procurement to ensure continuous tool availability and operational efficiency.",
-            "Oversaw the issuance, tracking, and inspection of tools, performing minor repairs, and coordinating replacements with maintenance teams.",
-            "Ensured proper tool storage and safety compliance, generating detailed reports on tool usage, inventory levels, and equipment performance to support data-driven improvements."
-        ]
-        // achievements removed
+// ========== LOAD EXPERIENCE DATA FROM JSON ==========
+async function loadExperiences() {
+    try {
+        const response = await fetch('data\\experiences.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Failed to load experiences:', error);
+        const container = document.getElementById('timeline');
+        if (container) {
+            container.innerHTML = '<p class="error-message">Unable to load experiences. Please try again later.</p>';
+        }
+        return []; // fallback empty array
     }
-];
+}
 
 // ========== HELPER FUNCTIONS ==========
 function calculateDuration(startDate, endDate) {
@@ -78,11 +46,16 @@ function formatDateRange(startDate, endDate) {
 }
 
 // ========== RENDER TIMELINE ==========
-function renderTimeline() {
+function renderTimeline(experiencesData) {
     const container = document.getElementById('timeline');
     if (!container) return;
 
     container.innerHTML = '';
+
+    if (!experiencesData.length) {
+        container.innerHTML = '<p class="no-data">No experience entries to display.</p>';
+        return;
+    }
 
     experiencesData.forEach((job, index) => {
         const periodDisplay = formatDateRange(job.startDate, job.endDate);
@@ -104,12 +77,12 @@ function renderTimeline() {
         header.innerHTML = `
             <div class="header-left">
                 <h3>${job.title}</h3>
-                <div class="company"><i class="fas fa-building"></i> ${job.company}</div>
+                <div class="company"><i class="fas fa-building" aria-hidden="true"></i> ${job.company}</div>
             </div>
             <div class="header-right">
-                <div class="location"><i class="fas fa-map-marker-alt"></i> ${job.location}</div>
-                <div class="period"><i class="fas fa-calendar"></i> ${periodDisplay}</div>
-                <span class="duration-badge"><i class="far fa-clock"></i> ${duration}</span>
+                <div class="location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${job.location}</div>
+                <div class="period"><i class="fas fa-calendar" aria-hidden="true"></i> ${periodDisplay}</div>
+                <span class="duration-badge"><i class="far fa-clock" aria-hidden="true"></i> ${duration}</span>
             </div>
         `;
         card.appendChild(header);
@@ -119,7 +92,7 @@ function renderTimeline() {
             const toolsSection = document.createElement('div');
             toolsSection.className = 'tools-section';
             toolsSection.innerHTML = `
-                <h4><i class="fas fa-wrench"></i> Tools & Technologies</h4>
+                <h4><i class="fas fa-wrench" aria-hidden="true"></i> Tools & Technologies</h4>
                 <div class="tool-tags">
                     ${job.tools.map(tool => `<span class="tool-tag">${tool}</span>`).join('')}
                 </div>
@@ -131,10 +104,10 @@ function renderTimeline() {
         const respSection = document.createElement('div');
         respSection.className = 'responsibilities-section';
         respSection.innerHTML = `
-            <h4><i class="fas fa-tasks"></i> Responsibilities</h4>
+            <h4><i class="fas fa-tasks" aria-hidden="true"></i> Responsibilities</h4>
             <ul class="responsibilities-list" id="resp-${index}">
                 ${job.responsibilities.map(r => `
-                    <li><i class="fas fa-check-circle"></i> ${r}</li>
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> ${r}</li>
                 `).join('')}
             </ul>
         `;
@@ -143,7 +116,7 @@ function renderTimeline() {
         // Expand/Collapse Button
         const expandBtn = document.createElement('button');
         expandBtn.className = 'expand-btn';
-        expandBtn.innerHTML = '<span>Show less</span> <i class="fas fa-chevron-up"></i>';
+        expandBtn.innerHTML = '<span>Show less</span> <i class="fas fa-chevron-up" aria-hidden="true"></i>';
         expandBtn.setAttribute('aria-expanded', 'true');
         expandBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -179,7 +152,7 @@ function setupScrollReveal() {
 }
 
 // ========== UPDATE CAREER SUMMARY ==========
-function updateCareerSummary() {
+function updateCareerSummary(experiencesData) {
     const totalMonths = experiencesData.reduce((acc, job) => {
         const start = new Date(job.startDate);
         const end = job.endDate ? new Date(job.endDate) : new Date();
@@ -198,11 +171,13 @@ function updateCareerSummary() {
     if (totalExpEl) totalExpEl.textContent = totalExpStr;
 }
 
-// ========== INIT ==========
-document.addEventListener('DOMContentLoaded', function() {
+// ========== INITIALIZATION ==========
+document.addEventListener('DOMContentLoaded', async function() {
+    // Set current year (if element exists)
     const yearEl = document.getElementById('current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // Mobile menu toggle (if elements exist)
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
     if (mobileBtn && navLinks) {
@@ -212,6 +187,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    renderTimeline();
-    updateCareerSummary();
+    // Show loading indicator
+    const timelineContainer = document.getElementById('timeline');
+    if (timelineContainer) {
+        timelineContainer.innerHTML = '<div class="loading-spinner">Loading experiences...</div>';
+    }
+
+    // Load experiences and render
+    const experiences = await loadExperiences();
+    renderTimeline(experiences);
+    updateCareerSummary(experiences);
 });

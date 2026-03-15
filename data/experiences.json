@@ -1,0 +1,65 @@
+[
+  {
+    "title": "CNC Operator/Programmer",
+    "company": "Protectolite Composites Inc.",
+    "location": "North York, ON",
+    "startDate": "2025-01-01",
+    "endDate": null,
+    "tools": [
+      "G-Code",
+      "CNC Machining",
+      "Calipers",
+      "Micrometers",
+      "FRP Composites",
+      "Quality Control"
+    ],
+    "responsibilities": [
+      "Program and operate CNC machine using G-code to manufacture precision parts from FRP (Fiberglass Reinforced Plastic) sheets and composite materials.",
+      "Produce high-quality components for wastewater systems, electrical insulation applications, and custom vehicle parts, meeting tight tolerances and client specifications.",
+      "Interpret engineering drawings, CAD models, and Bills of Materials (BOMs) to plan and execute accurate machining operations.",
+      "Perform dimensional inspections using calipers, micrometers, and height gauges, documenting all quality assurance results to maintain production standards.",
+      "Collaborate with engineers and production teams to resolve machining challenges, optimize tool paths, and support continuous improvement initiatives.",
+      "Maintain a safe, organized, and compliant work environment, ensuring efficient operation of all CNC and shop equipment."
+    ]
+  },
+  {
+    "title": "Design Assistant (Part-Time)",
+    "company": "Kris Design & Build",
+    "location": "Scarborough, ON, Canada",
+    "startDate": "2024-06-01",
+    "endDate": "2024-12-31",
+    "tools": [
+      "AutoCAD",
+      "Architectural Drawings",
+      "Client Collaboration",
+      "Version Control",
+      "Material Selection"
+    ],
+    "responsibilities": [
+      "Created precise 2D architectural drawings in AutoCAD, adhering to industry standards and project specifications.",
+      "Collaborated with clients and multidisciplinary design teams to integrate feedback and recommend materials and finishes that enhance design functionality and aesthetic quality.",
+      "Managed and organized design documentation, including specifications, drawing versions, and schedules, ensuring project consistency.",
+      "Supported project delivery and client satisfaction through effective timeline coordination and cross-functional communication.",
+      "Maintained compliance with regulatory guidelines and quality standards through consistent version control and internal review processes."
+    ]
+  },
+  {
+    "title": "Tool Crib Attendant (Machine Shop)",
+    "company": "Centennial College",
+    "location": "Scarborough, ON, Canada",
+    "startDate": "2023-01-01",
+    "endDate": "2023-04-30",
+    "tools": [
+      "Inventory Management",
+      "Tool Inspection",
+      "Safety Compliance",
+      "Data Reporting",
+      "Procurement"
+    ],
+    "responsibilities": [
+      "Maintained precise inventory records, performed regular audits, and managed procurement to ensure continuous tool availability and operational efficiency.",
+      "Oversaw the issuance, tracking, and inspection of tools, performing minor repairs, and coordinating replacements with maintenance teams.",
+      "Ensured proper tool storage and safety compliance, generating detailed reports on tool usage, inventory levels, and equipment performance to support data-driven improvements."
+    ]
+  }
+]

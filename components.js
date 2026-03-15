@@ -1,368 +1,441 @@
-// components.js – Enterprise Ready Full Version (Dynamic 3D FIXED & STABLE)
-
 const componentsGrid = document.getElementById('components-grid');
 const detailModal = document.getElementById('detail-modal');
-const detailModalContent = document.getElementById('detail-modal-content');
-const loadingState = document.getElementById('loading-state');
 const errorState = document.getElementById('error-state');
 
 let currentItem = null;
 let currentType = null;
 let lastFocusedElement = null;
 let currentIndex = 0;
-let pdfZoom = 1;
+let keyboardListener = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    initializeComponents();
+});
 
+function initializeComponents() {
     if (!window.componentsData || componentsData.length === 0) {
         console.error("No components data found in data.js");
-        showError();
+        showError('No components data available');
         return;
     }
 
     loadComponents();
-    setupGlobalEvents();
-});
-
-
-// ===============================
-// LOAD COMPONENT CARDS
-// ===============================
-function loadComponents() {
-    componentsGrid.innerHTML = '';
-    componentsGrid.setAttribute('aria-busy', 'true');
-
-    const fragment = document.createDocumentFragment();
-
-    componentsData.forEach(component => {
-
-        const card = document.createElement('div');
-        card.className = 'item-card';
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Open ${component.title}`);
-
-        card.innerHTML = `
-            <img src="${component.thumbnail}" 
-                 class="item-image" 
-                 alt="${component.title}" 
-                 loading="lazy">
-            <div class="item-title"><h3>${component.title}</h3></div>
-        `;
-
-        card.addEventListener('click', () => showComponentDetail(component));
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                showComponentDetail(component);
-            }
-        });
-
-        fragment.appendChild(card);
-    });
-
-    componentsGrid.appendChild(fragment);
-    loadingState?.setAttribute('hidden', true);
-    componentsGrid.setAttribute('aria-busy', 'false');
 }
 
+function loadComponents() {
+    try {
+        componentsGrid.innerHTML = '';
+        hideError();
 
-// ===============================
-// DETAIL MODAL VIEW
-// ===============================
-function showComponentDetail(item) {
+        componentsData.forEach(component => {
+            const card = createComponentCard(component);
+            componentsGrid.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading components:', error);
+        showError('Failed to load components');
+    }
+}
 
-    lastFocusedElement = document.activeElement;
-    currentItem = item;
-    currentIndex = 0;
-    pdfZoom = 1;
-
-    currentItem.images = currentItem.images || [];
-    currentItem.videos = currentItem.videos || [];
-    currentItem.drawing = Array.isArray(currentItem.drawing) ? currentItem.drawing : [];
-    currentItem.model3d = Array.isArray(currentItem.model3d) ? currentItem.model3d : [];
-
-    currentType =
-    currentItem.model3d.length ? 'model' :
-    currentItem.images.length ? 'images' :
-    currentItem.videos.length ? 'videos' :
-    currentItem.drawing.length ? 'pdf' :
-    'placeholder';
-
-    detailModalContent.innerHTML = `
-        <div class="detail-container">
-            <button class="back-button" id="detail-back-button">← Back</button>
-            <div class="detail-title"><h1>${item.title}</h1></div>
-            <div class="media-grid" id="preview-container"></div>
-            <button class="media-nav left" id="nav-left">&lt;</button>
-            <button class="media-nav right" id="nav-right">&gt;</button>
-            <div class="media-toolbar" id="media-toolbar"></div>
-            <div class="action-buttons">
-                ${currentItem.images.length ? `<button class="action-btn images" data-type="images">Images (${currentItem.images.length})</button>` : ''}
-                ${currentItem.videos.length ? `<button class="action-btn videos" data-type="videos">Videos (${currentItem.videos.length})</button>` : ''}
-                ${currentItem.drawing.length ? `<button class="action-btn drawing" data-type="pdf">Drawing</button>` : ''}
-                ${currentItem.model3d.length ? `<button class="action-btn model" data-type="model">3D Model</button>` : ''}
-            </div>
+function createComponentCard(component) {
+    const card = document.createElement('div');
+    
+    card.className = 'item-card';
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View details for ${component.title}`);
+    card.dataset.title = component.title;
+    
+    card.innerHTML = `
+        <img src="${component.thumbnail}" 
+             class="item-image" 
+             alt="${component.title}"
+             loading="lazy">
+        <div class="item-title">
+            <h3>${component.title}</h3>
         </div>
     `;
 
-    setActiveButton(document.querySelector(`.action-btn.${currentType}`));
-    renderCurrentMedia();
+    card.addEventListener('click', () => showComponentDetail(component));
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showComponentDetail(component);
+        }
+    });
 
+    return card;
+}
+
+function showComponentDetail(item) {
+    lastFocusedElement = document.activeElement;
+    
+    currentItem = {
+        ...item,
+        images: item.images || [],
+        videos: item.videos || [],
+        drawing: item.drawing || [],
+        model3d: item.model3d || []
+    };
+    
+    currentIndex = 0;
+    currentType = determineInitialMediaType(currentItem);
+    
+    populateModalContent();
+    renderCurrentMedia();
+    
     detailModal.classList.add('active');
     detailModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-    detailModal.focus();
-
-    setupDetailButtons();
-    setupMediaNavigation();
+    
+    setupModalEventListeners();
+    
+    setTimeout(() => {
+        const firstFocusable = document.querySelector('.action-btn, .back-button, .modal-close');
+        if (firstFocusable) {
+            firstFocusable.focus();
+        } else {
+            document.querySelector('.detail-modal-content')?.focus();
+        }
+    }, 100);
 }
 
+function determineInitialMediaType(item) {
+    if (item.model3d.length) return 'model';
+    if (item.images.length) return 'images';
+    if (item.videos.length) return 'videos';
+    if (item.drawing.length) return 'pdf';
+    return null;
+}
 
-// ===============================
-// RENDER CURRENT MEDIA
-// ===============================
+function populateModalContent() {
+    const modalContent = document.querySelector('.detail-modal-content');
+    
+    modalContent.innerHTML = `
+        <button class="back-button" id="detail-back-button" aria-label="Go back">← Back</button>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+        
+        <h2 class="detail-title" id="detail-title">${currentItem.title}</h2>
+        
+        <div class="action-buttons" id="action-buttons">
+            ${createActionButtons()}
+        </div>
+        
+        <div class="viewer-section">
+            <div id="preview-container" class="media-grid"></div>
+        </div>
+        
+        <div class="media-toolbar" id="media-toolbar"></div>
+    `;
+}
+
+function createActionButtons() {
+    const buttons = [];
+    const types = [
+        { type: 'images', label: 'Images', count: currentItem.images.length },
+        { type: 'videos', label: 'Videos', count: currentItem.videos.length },
+        { type: 'pdf', label: 'Drawing', count: currentItem.drawing.length },
+        { type: 'model', label: '3D Models', count: currentItem.model3d.length }
+    ];
+    
+    types.forEach(({ type, label, count }) => {
+        if (count > 0) {
+            const activeClass = currentType === type ? 'active' : '';
+            const ariaCurrent = currentType === type ? 'true' : 'false';
+            buttons.push(
+                `<button class="action-btn ${activeClass}" data-type="${type}" aria-current="${ariaCurrent}">${label} (${count})</button>`
+            );
+        }
+    });
+    
+    return buttons.join('');
+}
+
 function renderCurrentMedia() {
-
     const container = document.getElementById('preview-container');
     const toolbar = document.getElementById('media-toolbar');
-    const navLeft = document.getElementById('nav-left');
-    const navRight = document.getElementById('nav-right');
-
-    if (!container) return;
-
+    
+    if (!container || !toolbar) return;
+    
     container.innerHTML = '';
-    if (toolbar) toolbar.innerHTML = '';
-
-    let mediaArray = [];
-
-    switch (currentType) {
-        case 'images': mediaArray = currentItem.images || []; break;
-        case 'videos': mediaArray = currentItem.videos || []; break;
-        case 'pdf': mediaArray = currentItem.drawing || []; break;
-        case 'model': mediaArray = currentItem.model3d || []; break;
-        default: mediaArray = [];
-    }
-
+    toolbar.innerHTML = '';
+    
+    const mediaArray = getMediaArray();
+    
     if (!mediaArray.length) {
-        container.appendChild(createPlaceholder());
+        showNoMediaMessage(container);
         return;
     }
-
+    
     currentIndex = Math.max(0, Math.min(currentIndex, mediaArray.length - 1));
-    const mediaSrc = mediaArray[currentIndex];
+    
+    const mediaElement = createMediaElement(mediaArray[currentIndex]);
+    const wrapper = createMediaWrapper(mediaElement, mediaArray.length);
+    
+    container.appendChild(wrapper);
+    
+    addToolbarControls(toolbar, mediaArray.length);
+}
 
-    let mediaElement;
+function getMediaArray() {
+    switch (currentType) {
+        case 'images': return currentItem.images;
+        case 'videos': return currentItem.videos;
+        case 'pdf': return currentItem.drawing;
+        case 'model': return currentItem.model3d;
+        default: return [];
+    }
+}
 
+function createMediaElement(src) {
     switch (currentType) {
         case 'images':
-            mediaElement = createImageItem(mediaSrc);
-            break;
+            return createImageElement(src);
         case 'videos':
-            mediaElement = createVideoItem(mediaSrc);
-            break;
+            return createVideoElement(src);
         case 'pdf':
-            mediaElement = createPdfItem(mediaSrc);
-            break;
+            return createPdfElement(src);
         case 'model':
-            mediaElement = createModelItem(mediaSrc);
-            addModelToolbar(toolbar, mediaElement);
-            break;
+            return createModelElement(src);
         default:
-            mediaElement = createPlaceholder();
-    }
-
-    container.appendChild(mediaElement);
-
-    if (navLeft && navRight) {
-        if (mediaArray.length <= 1 || currentType === 'model') {
-            navLeft.classList.add('hidden');
-            navRight.classList.add('hidden');
-        } else {
-            navLeft.classList.remove('hidden');
-            navRight.classList.remove('hidden');
-        }
+            const div = document.createElement('div');
+            div.className = 'no-media-message';
+            div.textContent = 'Unsupported media type';
+            return div;
     }
 }
 
-
-// ===============================
-// 3D MODEL (FULLY FIXED)
-// ===============================
-function createModelItem(src) {
-
-    const div = document.createElement('div');
-    div.className = 'media-item';
-    div.style.width = '100%';
-    div.style.height = '80vh';
-    div.style.minHeight = '500px';
-    div.style.position = 'relative';
-    div.style.backgroundColor = 'var(--light-color)';
-
-    const loadingIndicator = document.createElement('div');
-    loadingIndicator.className = 'model-loading';
-    loadingIndicator.innerHTML = 'Loading 3D model...';
-    div.appendChild(loadingIndicator);
-
-    customElements.whenDefined('model-viewer').then(() => {
-
-        const modelViewer = document.createElement('model-viewer');
-
-        modelViewer.src = src;
-        modelViewer.alt = `${currentItem.title} 3D model`;
-        modelViewer.setAttribute('camera-controls', '');
-        modelViewer.setAttribute('auto-rotate', '');
-        modelViewer.setAttribute('rotation-per-second', '30deg');
-        modelViewer.setAttribute('shadow-intensity', '1');
-        modelViewer.setAttribute('exposure', '1');
-        modelViewer.setAttribute('loading', 'lazy');
-        modelViewer.setAttribute('reveal', 'auto');
-        modelViewer.setAttribute('ar', '');
-        modelViewer.setAttribute('ar-modes', 'webxr scene-viewer quick-look');
-
-        modelViewer.style.width = '100%';
-        modelViewer.style.height = '100%';
-
-        modelViewer.addEventListener('load', () => {
-            loadingIndicator.style.display = 'none';
-            console.log('✅ Model loaded:', src);
-        });
-
-        modelViewer.addEventListener('error', () => {
-            loadingIndicator.innerHTML = `
-                <div style="text-align:center; color: var(--accent-color);">
-                    <p style="font-size:24px;">❌</p>
-                    <p>Failed to load 3D model</p>
-                    <p style="font-size:12px; color: var(--gray-color);">${src}</p>
-                </div>
-            `;
-        });
-
-        div.appendChild(modelViewer);
-    });
-
-    return div;
-}
-
-
-// ===============================
-// TOOLBAR
-// ===============================
-function addModelToolbar(toolbar, container) {
-    if (!toolbar) return;
-
-    const fsBtn = document.createElement('button');
-    fsBtn.textContent = "⛶ Fullscreen";
-    fsBtn.onclick = () => {
-        const model = container.querySelector('model-viewer');
-        model?.requestFullscreen();
-    };
-
-    const arBtn = document.createElement('button');
-    arBtn.textContent = "📱 View in AR";
-    arBtn.onclick = () => {
-        const model = container.querySelector('model-viewer');
-        model?.activateAR();
-    };
-
-    toolbar.appendChild(fsBtn);
-    toolbar.appendChild(arBtn);
-}
-
-
-// ===============================
-// UTILITIES
-// ===============================
-function createImageItem(src) {
+function createImageElement(src) {
     const img = document.createElement('img');
     img.src = src;
     img.className = 'media-item';
+    img.alt = 'Component image';
     img.loading = 'lazy';
     return img;
 }
 
-function createVideoItem(src) {
+function createVideoElement(src) {
     const video = document.createElement('video');
     video.src = src;
     video.controls = true;
     video.className = 'media-item';
+    video.preload = 'metadata';
     return video;
 }
 
-function createPdfItem(src) {
+function createPdfElement(src) {
     const iframe = document.createElement('iframe');
     iframe.src = src;
     iframe.className = 'media-item';
+    iframe.title = 'PDF Document';
+    iframe.setAttribute('aria-label', 'PDF viewer');
     return iframe;
 }
 
-function createPlaceholder() {
-    const div = document.createElement('div');
-    div.className = 'media-item';
-    div.textContent = "No media available";
-    return div;
+function createModelElement(src) {
+    const modelViewer = document.createElement('model-viewer');
+    
+    modelViewer.src = src;
+    modelViewer.setAttribute('camera-controls', '');
+    modelViewer.setAttribute('auto-rotate', '');
+    modelViewer.setAttribute('shadow-intensity', '1');
+    modelViewer.setAttribute('ar', '');
+    modelViewer.setAttribute('alt', `3D model of ${currentItem.title}`);
+    modelViewer.className = 'media-item';
+    
+    // Force dimensions with inline styles
+    modelViewer.style.width = '800px';
+    modelViewer.style.height = '500px';
+    modelViewer.style.maxWidth = '100%';
+    
+    // Force resize after a short delay to ensure rendering
+    setTimeout(() => {
+        if (modelViewer.updateFramebuffer) {
+            modelViewer.updateFramebuffer();
+        } else {
+            window.dispatchEvent(new Event('resize'));
+        }
+    }, 100);
+    
+    return modelViewer;
 }
 
+function createMediaWrapper(mediaElement, totalItems) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'media-wrapper';
+    wrapper.appendChild(mediaElement);
+    
+    if (totalItems > 1) {
+        const navLeft = createNavButton('left', '◀', () => changeMedia(-1));
+        const navRight = createNavButton('right', '▶', () => changeMedia(1));
+        
+        wrapper.appendChild(navLeft);
+        wrapper.appendChild(navRight);
+    }
+    
+    return wrapper;
+}
 
-// ===============================
-function setupDetailButtons() {
-    document.getElementById('detail-back-button')?.addEventListener('click', closeModal);
-    document.getElementById('modal-close-btn')?.addEventListener('click', closeModal);
+function createNavButton(direction, icon, clickHandler) {
+    const button = document.createElement('button');
+    button.className = `media-nav ${direction}`;
+    button.innerHTML = icon;
+    button.setAttribute('aria-label', `Show previous ${currentType}`);
+    button.onclick = clickHandler;
+    return button;
+}
 
+function addToolbarControls(toolbar, totalItems) {
+    const counter = document.createElement('span');
+    counter.className = 'model-counter';
+    counter.textContent = `${currentIndex + 1} / ${totalItems}`;
+    toolbar.appendChild(counter);
+    
+    const fsBtn = document.createElement('button');
+    fsBtn.textContent = '⛶ Fullscreen';
+    fsBtn.setAttribute('aria-label', 'View in fullscreen');
+    fsBtn.onclick = toggleFullscreen;
+    toolbar.appendChild(fsBtn);
+    
+    if (currentType === 'model') {
+        const arBtn = document.createElement('button');
+        arBtn.textContent = '📱 AR';
+        arBtn.setAttribute('aria-label', 'View in augmented reality');
+        arBtn.onclick = () => {
+            const modelViewer = document.querySelector('model-viewer');
+            if (modelViewer) modelViewer.activateAR();
+        };
+        toolbar.appendChild(arBtn);
+    }
+}
+
+function toggleFullscreen() {
+    const mediaElement = document.querySelector('.media-item');
+    if (!mediaElement) return;
+    
+    if (mediaElement.requestFullscreen) {
+        mediaElement.requestFullscreen();
+    } else if (mediaElement.webkitRequestFullscreen) {
+        mediaElement.webkitRequestFullscreen();
+    } else if (mediaElement.msRequestFullscreen) {
+        mediaElement.msRequestFullscreen();
+    } else {
+        const wrapper = mediaElement.closest('.media-wrapper');
+        if (wrapper) {
+            if (wrapper.requestFullscreen) {
+                wrapper.requestFullscreen();
+            } else if (wrapper.webkitRequestFullscreen) {
+                wrapper.webkitRequestFullscreen();
+            } else if (wrapper.msRequestFullscreen) {
+                wrapper.msRequestFullscreen();
+            }
+        }
+    }
+}
+
+function showNoMediaMessage(container) {
+    const message = document.createElement('div');
+    message.className = 'no-media-message';
+    message.textContent = 'No media available for this type';
+    container.appendChild(message);
+}
+
+function changeMedia(direction) {
+    const mediaArray = getMediaArray();
+    if (!mediaArray.length) return;
+    
+    currentIndex = (currentIndex + direction + mediaArray.length) % mediaArray.length;
+    renderCurrentMedia();
+}
+
+function setupModalEventListeners() {
+    if (keyboardListener) {
+        document.removeEventListener('keydown', keyboardListener);
+    }
+    
+    const backBtn = document.getElementById('detail-back-button');
+    if (backBtn) backBtn.onclick = closeModal;
+    
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (closeBtn) closeBtn.onclick = closeModal;
+    
     document.querySelectorAll('.action-btn').forEach(btn => {
         btn.onclick = () => {
             currentType = btn.dataset.type;
             currentIndex = 0;
+            
+            document.querySelectorAll('.action-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-current', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-current', 'true');
+            
             renderCurrentMedia();
-            setActiveButton(btn);
         };
     });
-}
-
-function setupMediaNavigation() {
-    document.getElementById('nav-left')?.addEventListener('click', () => changeMedia(-1));
-    document.getElementById('nav-right')?.addEventListener('click', () => changeMedia(1));
-}
-
-function changeMedia(delta) {
-    if (currentType === 'model') return;
-
-    const mediaArray =
-        currentType === 'images' ? currentItem.images :
-        currentType === 'videos' ? currentItem.videos :
-        currentType === 'pdf' ? currentItem.drawing : [];
-
-    if (!mediaArray.length) return;
-
-    currentIndex = (currentIndex + delta + mediaArray.length) % mediaArray.length;
-    renderCurrentMedia();
-}
-
-function setActiveButton(btn) {
-    document.querySelectorAll('.action-btn').forEach(b => b.classList.remove('active'));
-    btn?.classList.add('active');
-}
-
-function setupGlobalEvents() {
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && detailModal.classList.contains('active')) {
+    
+    keyboardListener = (e) => {
+        if (!detailModal.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                e.preventDefault();
+                closeModal();
+                break;
+            case 'ArrowRight':
+                e.preventDefault();
+                changeMedia(1);
+                break;
+            case 'ArrowLeft':
+                e.preventDefault();
+                changeMedia(-1);
+                break;
+        }
+    };
+    
+    document.addEventListener('keydown', keyboardListener);
+    
+    detailModal.onclick = (e) => {
+        if (e.target === detailModal) {
             closeModal();
         }
-    });
-
-    detailModal.addEventListener('click', e => {
-        if (e.target === detailModal) closeModal();
-    });
+    };
 }
 
 function closeModal() {
     detailModal.classList.remove('active');
     detailModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
-    lastFocusedElement?.focus();
+    
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+    
+    if (keyboardListener) {
+        document.removeEventListener('keydown', keyboardListener);
+        keyboardListener = null;
+    }
 }
 
-function showError() {
-    loadingState?.setAttribute('hidden', true);
-    errorState?.removeAttribute('hidden');
+function showError(message = 'Failed to load components') {
+    if (errorState) {
+        errorState.hidden = false;
+        const messageEl = errorState.querySelector('p');
+        if (messageEl) messageEl.textContent = message;
+    }
+}
+
+function hideError() {
+    if (errorState) {
+        errorState.hidden = true;
+    }
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        createComponentCard,
+        determineInitialMediaType,
+        changeMedia
+    };
 }

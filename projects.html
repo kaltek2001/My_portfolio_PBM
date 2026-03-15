@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Mechanical Portfolio</title>
-    <!-- Font Awesome -->
+    <!-- Font Awesome with Subresource Integrity (replace with actual hash) -->
     <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  crossorigin="anonymous"
-/>
-
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-ys4E4c8D7zI6jPC9rk0ZxPx0VvQw3/HqC6+KFZ3JN3mD8T8X3yN8HFAJzB6B+E2vLkB9RcU5Q0nFpS0kA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
     <!-- Global CSS for header/footer -->
     <link rel="stylesheet" href="global.css">
     <!-- Projects page CSS -->
@@ -23,7 +24,7 @@
     <!-- Hero Section -->
     <section class="projects-hero">
         <div class="container">
-            <h1><i class="fas fa-project-diagram"></i> Engineering Projects</h1>
+            <h1><i class="fas fa-project-diagram" aria-hidden="true"></i> Engineering Projects</h1>
             <p>Showcasing innovative mechanical engineering solutions and CAD designs</p>
         </div>
     </section>
@@ -31,9 +32,9 @@
     <!-- Main Content -->
     <main class="projects-container">
         <!-- Coming Soon Section -->
-        <section class="coming-soon">
+        <section class="coming-soon" id="coming-soon">
             <div class="coming-soon-icon">
-                <i class="fas fa-tools"></i>
+                <i class="fas fa-tools" aria-hidden="true"></i>
             </div>
             <h2>Projects Coming Soon</h2>
             <p>
@@ -42,12 +43,12 @@
                 documentation of mechanical systems I've designed and implemented.
             </p>
             <a href="contact.html" class="cta-button">
-                <i class="fas fa-envelope"></i> Contact for Project Details
+                <i class="fas fa-envelope" aria-hidden="true"></i> Contact for Project Details
             </a>
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
+        <section class="cta-section" id="cta-section">
             <h3>Interested in My Engineering Projects?</h3>
             <p>
                 While I prepare detailed project documentation, feel free to reach out to discuss
@@ -55,10 +56,10 @@
             </p>
             <div class="cta-buttons">
                 <a href="contact.html" class="cta-button">
-                    <i class="fas fa-envelope"></i> Contact Me
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Contact Me
                 </a>
                 <a href="components.html" class="cta-button secondary">
-                    <i class="fas fa-cube"></i> View CAD Components
+                    <i class="fas fa-cube" aria-hidden="true"></i> View CAD Components
                 </a>
             </div>
         </section>

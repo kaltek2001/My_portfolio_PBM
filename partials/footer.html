@@ -1,4 +1,4 @@
-<!-- ===== PROFESSIONAL FOOTER ===== -->
+<!-- ===== PROFESSIONAL FOOTER WITH DYNAMIC YEAR AND BACK-TO-TOP ===== -->
 <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
         <!-- Copyright & Brand -->
@@ -6,7 +6,7 @@
             <p class="copyright-text">
                 &copy; <span id="current-year"></span> 
                 <span class="brand-name">Prashant Budha Magar</span>
-                <span class="legal-separator">|</span>
+                <span class="legal-separator" aria-hidden="true">|</span>
                 <span class="rights-reserved">All rights reserved</span>
             </p>
         </div>
@@ -40,28 +40,50 @@
     </a>
 </footer>
 
-<!-- Minimal JavaScript for dynamic year and back-to-top visibility -->
+<!-- Minimal JavaScript for dynamic year and back-to-top visibility (now with debounce and no duplication) -->
 <script>
     (function() {
         'use strict';
-        // Set current year
+
+        // Set current year once
         const yearSpan = document.getElementById('current-year');
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
         // Back-to-top button visibility and smooth scroll
         const backToTop = document.querySelector('.back-to-top');
-        if (backToTop) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+        if (!backToTop) return;
+
+        // Use a named function to avoid duplicate listeners
+        function updateBackToTopVisibility() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
+
+        // Debounce function to limit scroll event calls
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(func, wait);
+            };
+        }
+
+        // Attach scroll listener with debounce (and ensure it's only added once)
+        if (!window._backToTopListenerAdded) {
+            const debouncedUpdate = debounce(updateBackToTopVisibility, 100);
+            window.addEventListener('scroll', debouncedUpdate, { passive: true });
+            window._backToTopListenerAdded = true; // flag to prevent duplicate
+            // Also call once to set initial state
+            updateBackToTopVisibility();
+        }
+
+        // Click handler for smooth scroll
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     })();
 </script>

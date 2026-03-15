@@ -50,7 +50,8 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    background: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover fixed;
+    /* Fallback colour and self‑hosted image recommended */
+    background: #1e293b url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover fixed;
     margin-bottom: 3rem;
 }
 
@@ -97,6 +98,14 @@ body {
     transform: translateY(-2px);
 }
 
+/* Focus styles for accessibility */
+.hero-cta:focus-visible,
+.expand-btn:focus-visible,
+.tool-tag:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -105,6 +114,13 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Disable fixed background on mobile for performance */
+@media (max-width: 768px) {
+    .experience-hero {
+        background-attachment: scroll;
     }
 }
 
@@ -172,6 +188,28 @@ body {
     margin: 0 auto 4rem;
     padding: 0 1.5rem;
     position: relative;
+}
+
+/* Loading & error states */
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.error-message {
+    text-align: center;
+    padding: 3rem;
+    color: #dc2626;
+    background: #fee2e2;
+    border-radius: 1rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
 }
 
 /* Vertical Line */
@@ -243,7 +281,7 @@ body {
 }
 
 .experience-card:hover {
-    transform: translateY(-5px) scale(1.01);
+    transform: translateY(-5px) scale(1.02); /* Slightly increased for clarity */
     box-shadow: 0 30px 40px -15px rgba(0,0,0,0.2);
 }
 

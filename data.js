@@ -9,7 +9,7 @@ const componentsData = [
     { 
         id: "angle-clip",
         title: "Angle Clip",
-        thumbnail: "Assets/Components/Angle Clip/thumbnail.JPG",
+        thumbnail: "Assets/Components/Angle Clip/Thumbnail.JPG",
 
         images: [
             "Assets/Components/Angle Clip/Angle Clip 1.JPG",
@@ -35,21 +35,25 @@ const componentsData = [
     {
         id: "bracket-mount",
         title: "Bracket Mount",
-        thumbnail: "Assets/Components/Bracket Mount/thumbnail.jpg",
+        thumbnail: "Assets/Components/Control Bracket Casting/Thumbnail.JPG",
 
         images: [
-            "Assets/Components/Bracket Mount/Bracket Mount 1.JPG",
-            "Assets/Components/Bracket Mount/Bracket Mount 2.JPG"
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 1.JPG",
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 2.JPG",
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 3.JPG",
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 4.JPG",
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 5.JPG",
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting 6.JPG"
         ],
 
         videos: [],
 
         drawing: [
-            "Assets/Components/Bracket Mount/Bracket Mount.pdf"
+            "Assets/Components/Control Bracket Casting/Control Bracket Casting.pdf"
         ],
 
         model3d: [
-            "Assets/Components/Bracket Mount/Bracket Mount.glb"
+            "Assets/Components/Control Bracket Casting/Control_Bracket_Casting.gltf"
         ]
     }
 ];
@@ -62,20 +66,34 @@ const assembliesData = [
     {
         id: "geneva-wheel",
         title: "Geneva Wheel",
-        thumbnail: "Assets/Assemblies/Geneva-Wheel/thumbnail.jpg",
+        thumbnail: "Assets/Assemblies/Geneva Wheel/Thumbnail.JPG",
 
         images: [
-            "Assets/Assemblies/Geneva-Wheel/image1.jpg",
-            "Assets/Assemblies/Geneva-Wheel/image2.jpg"
+            "Assets/Assemblies/Geneva Wheel/Base.JPG",
+            "Assets/Assemblies/Geneva Wheel/Geneva Gear.JPG",
+            "Assets/Assemblies/Geneva Wheel/Geneva Wheel.JPG",
+            "Assets/Assemblies/Geneva Wheel/Shoulder Bolt.JPG",
+            "Assets/Assemblies/Geneva Wheel/Whiz Nut.JPG",
+            "Assets/Assemblies/Geneva Wheel/Wheel.JPG"
+            
         ],
 
-        videos: [],
+        videos: ["Assets/Assemblies/Geneva Wheel/Geneva Wheel.mp4"],
 
         // MUST be array (not empty string)
-        drawing: [],
+        drawing: ["Assets/Assemblies/Geneva Wheel/Shoulder Bolt.pdf",
+            "Assets/Assemblies/Geneva Wheel/Wheel.pdf",
+            "Assets/Assemblies/Geneva Wheel/Whiz Nut.pdf"
+        ],
 
         // MUST be array (not empty string)
-        model3d: []
+        model3d: ["Assets/Assemblies/Geneva Wheel/Base.gltf",
+            "Assets/Assemblies/Geneva Wheel/Geneva_Gear.gltf",
+            "Assets/Assemblies/Geneva Wheel/Shoulder_Bolt.gltf",
+            "Assets/Assemblies/Geneva Wheel/Whiz_Nut.gltf",
+            "Assets/Assemblies/Geneva Wheel/Wheel.gltf",
+            "Assets/Assemblies/Geneva Wheel/Geneva_Wheel.gltf"
+        ]
     }
 ];
 

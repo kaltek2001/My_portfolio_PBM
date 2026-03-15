@@ -27,7 +27,46 @@ body {
     padding: 0 20px;
 }
 
-/* ===== PROFESSIONAL HEADER (unchanged) ===== */
+/* ===== SHARED LINK STYLES (for nav and footer) ===== */
+.interactive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.interactive-link i {
+    font-size: 1.1rem;
+    color: #777;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.interactive-link:hover {
+    background: rgba(0, 173, 181, 0.1);
+    color: #00adb5;
+}
+
+.interactive-link:hover i {
+    color: #00adb5;
+    transform: translateY(-2px);
+}
+
+.interactive-link.active {
+    background: rgba(0, 173, 181, 0.15);
+    color: #00adb5;
+}
+
+.interactive-link.active i {
+    color: #00adb5;
+}
+
+/* ===== PROFESSIONAL HEADER ===== */
 .main-navigation {
     background: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -97,7 +136,10 @@ body {
     position: relative;
 }
 
+/* Nav links extend shared styles */
 .nav-link {
+    composes: interactive-link; /* Pseudocode – in practice you'd duplicate or use a common class */
+    /* We'll manually duplicate properties to avoid @apply */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -163,14 +205,23 @@ body {
     color: white;
 }
 
+/* Dropdown */
 .dropdown {
     position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
 }
 
 .dropdown-arrow {
     font-size: 0.8rem;
     margin-left: 5px;
     transition: transform 0.3s ease;
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
 }
 
 .dropdown-menu {
@@ -185,18 +236,23 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     z-index: 100;
 }
 
+/* Show dropdown when .active class is present (for JS) or on hover (for desktop) */
+.dropdown.active .dropdown-menu,
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
+/* For keyboard users, also show when focus is within */
+.dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown-item {
@@ -207,9 +263,11 @@ body {
     text-decoration: none;
     color: #555;
     transition: all 0.3s ease;
+    outline: none;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+.dropdown-item:focus {
     background: rgba(0, 173, 181, 0.1);
     color: #00adb5;
     padding-left: 25px;
@@ -220,6 +278,7 @@ body {
     text-align: center;
 }
 
+/* Mobile menu toggle */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -252,7 +311,7 @@ body {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ===== PROFESSIONAL FOOTER (matching header style) ===== */
+/* ===== PROFESSIONAL FOOTER ===== */
 .site-footer {
     background: #fff;
     color: #333;
@@ -304,6 +363,7 @@ body {
 }
 
 .footer-link {
+    /* Inherits interactive-link styles */
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -351,6 +411,7 @@ body {
     color: #00adb5;
 }
 
+/* Back to top button */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -366,7 +427,7 @@ body {
     text-decoration: none;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     z-index: 999;
     box-shadow: 0 4px 12px rgba(0, 173, 181, 0.3);
 }
@@ -384,6 +445,17 @@ body {
 .back-to-top:focus-visible {
     outline: 3px solid rgba(0, 173, 181, 0.5);
     outline-offset: 2px;
+}
+
+/* ===== FOCUS VISIBLE STYLES FOR ALL INTERACTIVE ELEMENTS ===== */
+a:focus-visible,
+button:focus-visible,
+.dropdown-item:focus-visible,
+.nav-link:focus-visible,
+.footer-link:focus-visible {
+    outline: 3px solid #00adb5;
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -417,7 +489,8 @@ body {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-20px);
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 999;
     }
     .nav-menu.active {
         opacity: 1;
@@ -444,6 +517,7 @@ body {
         margin: 20px 0 0;
         justify-content: center;
     }
+    /* Dropdown adjustments for mobile */
     .dropdown-menu {
         position: static;
         box-shadow: none;
@@ -458,7 +532,7 @@ body {
         transition: max-height 0.3s ease;
     }
     .dropdown.active .dropdown-menu {
-        max-height: 300px;
+        max-height: 300px; /* Large enough for content */
         padding: 10px 0;
     }
     .dropdown-arrow {
@@ -466,6 +540,12 @@ body {
     }
     .dropdown.active .dropdown-arrow {
         transform: rotate(180deg);
+    }
+    /* Hide hover-only effects on mobile */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none; /* Reset to avoid conflict with max-height */
     }
 
     /* Mobile Footer */
@@ -520,7 +600,7 @@ body {
     }
 }
 
-/* Print styles */
+/* ===== PRINT STYLES ===== */
 @media print {
     .site-footer {
         background: none;

@@ -1,0 +1,230 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.8024016137175796,
+                -0.5529591506796209,
+                0.22447233233317732,
+                0.0,
+                -0.3069370827646847,
+                0.7049579353784888,
+                0.6393934129867177,
+                0.0,
+                -0.5118019905464702,
+                0.4441514235332028,
+                -0.7353830535483533,
+                0.0,
+                -0.06715791054233258,
+                0.058280901832843124,
+                -0.09649589145172387,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Whiz nut"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.0368197178164376,
+                "ymag": 0.028451600130883596,
+                "zfar": 0.14887124874448093,
+                "znear": 0.12239218730926385
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5
+                    },
+                    "indices": 3,
+                    "material": 1,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 168,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                57
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 58,
+            "type": "VEC3",
+            "min": [
+                -0.0017018000362440944,
+                -0.0017018000362440944,
+                -0.0025780999567359686
+            ],
+            "max": [
+                0.0017018000362440944,
+                0.0017018000362440944,
+                0.0025780999567359686
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 58,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                0.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                0.0
+            ]
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 672,
+            "componentType": 5125,
+            "count": 3588,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1839
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 696,
+            "componentType": 5126,
+            "count": 1840,
+            "type": "VEC3",
+            "min": [
+                -0.005969000048935413,
+                -0.005969000048935413,
+                -0.0025780999567359686
+            ],
+            "max": [
+                0.005969000048935413,
+                0.005969000048935413,
+                0.0025780999567359686
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 696,
+            "componentType": 5126,
+            "count": 1840,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0
+            }
+        },
+        {
+            "name": "satinfinishstainlesssteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    0.8912620430916338,
+                    0.8122415004576116,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 15024,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 15024,
+            "byteLength": 22776,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 37800,
+            "byteLength": 22776,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Whiz nut.bin",
+            "byteLength": 60576
+        }
+    ]
+}
