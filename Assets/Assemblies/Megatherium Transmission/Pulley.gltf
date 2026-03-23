@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.7580564871050414,
+                -4.2080588297524e-17,
+                0.6521889008239592,
+                0.0,
+                0.3757023349306224,
+                0.8174048216600553,
+                0.43668880573535607,
+                0.0,
+                -0.5331023521666759,
+                0.5760636748892376,
+                -0.6196390276503444,
+                0.0,
+                -0.2076629999770931,
+                0.24155234209871515,
+                -0.25982415644154605,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Pulley"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.10047500185533377,
+                "ymag": 0.07763977416093973,
+                "zfar": 0.5580600466208353,
+                "znear": 0.34994300335671435
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 3138,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1349
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1350,
+            "type": "VEC3",
+            "min": [
+                0.0,
+                -0.047731030732393265,
+                -0.04775200039148331
+            ],
+            "max": [
+                0.03175000101327896,
+                0.047731030732393265,
+                0.04775200039148331
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1350,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                0.9995608329772949,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "polishedbrass",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6592240098396633,
+                    0.4098257653065932,
+                    0.011126083727873971,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.07000000476837158
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 12552,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 12552,
+            "byteLength": 16200,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 28752,
+            "byteLength": 16200,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Pulley.bin",
+            "byteLength": 44952
+        }
+    ]
+}

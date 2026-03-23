@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.05720530538214616,
+                0.0,
+                0.9983624357096652,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                -0.9983624357096652,
+                -0.0,
+                -0.05720530538214616,
+                0.0,
+                -0.415825827632217,
+                0.0,
+                -0.02382646081688634,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Transmission Gear"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.09330213654089085,
+                "ymag": 0.0720971055088702,
+                "zfar": 0.5993571912744289,
+                "znear": 0.3250832334724255
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 4380,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                2071
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 2072,
+            "type": "VEC3",
+            "min": [
+                -0.03333749994635582,
+                -0.060195840895175934,
+                -0.060195840895175934
+            ],
+            "max": [
+                0.03333749994635582,
+                0.060195840895175934,
+                0.060195840895175934
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 2072,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishtitanium",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    0.9075472048866774,
+                    0.8512516536623489,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 17520,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 17520,
+            "byteLength": 24864,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 42384,
+            "byteLength": 24864,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Transmission Gear.bin",
+            "byteLength": 67248
+        }
+    ]
+}

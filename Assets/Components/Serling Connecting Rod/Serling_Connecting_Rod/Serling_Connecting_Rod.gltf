@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.961791086639082,
+                -0.24399670290117348,
+                0.12419144348533241,
+                0.0,
+                0.2288379050440347,
+                0.467407323974397,
+                -0.8539107721010143,
+                0.0,
+                0.15030342270444608,
+                0.84970347914343,
+                0.505383892357957,
+                0.0,
+                0.18169203419964963,
+                0.6035529349072225,
+                0.34469176626706677,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Serling Connecting Rod"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.16125890356713574,
+                "ymag": 0.12460915275642306,
+                "zfar": 1.0077701216622361,
+                "znear": 0.5615800391511498
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 13200,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                5485
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 5486,
+            "type": "VEC3",
+            "min": [
+                -0.06350000202655792,
+                -0.01460499968379736,
+                -0.06656307727098465
+            ],
+            "max": [
+                0.213359996676445,
+                0.01460499968379736,
+                0.038100000470876694
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 5486,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "caststainlesssteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.5731588967040465,
+                    0.5417983787732485,
+                    0.5113978427838181,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.5
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 52800,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 52800,
+            "byteLength": 65832,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 118632,
+            "byteLength": 65832,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Serling Connecting Rod.bin",
+            "byteLength": 184464
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.0680859903159927,
+                -0.5943848798235262,
+                0.8012932749997738,
+                0.0,
+                0.9360545335063011,
+                -0.315956250644414,
+                -0.15483396907986766,
+                0.0,
+                0.3452045889396485,
+                0.7395121786122908,
+                0.5778888556280625,
+                0.0,
+                0.16054889449390405,
+                0.35848116175588973,
+                0.2581362633443209,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Angled Mount"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.11076959437782237,
+                "ymag": 0.08559468656468092,
+                "zfar": 0.5675171811479928,
+                "znear": 0.38627404848020225
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 5256,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                2125
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 2126,
+            "type": "VEC3",
+            "min": [
+                -0.03175000101327896,
+                -0.00634999992325902,
+                -0.03175000101327896
+            ],
+            "max": [
+                0.044449999928474426,
+                0.06264926493167877,
+                0.03175000101327896
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 2126,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 21024,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 21024,
+            "byteLength": 25512,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 46536,
+            "byteLength": 25512,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Angled Mount.bin",
+            "byteLength": 72048
+        }
+    ]
+}

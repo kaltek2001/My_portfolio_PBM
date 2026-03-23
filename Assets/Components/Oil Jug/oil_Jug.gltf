@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.7576140646849843,
+                -2.7755575615628914e-17,
+                -0.6527027876388278,
+                0.0,
+                -0.3757949673908731,
+                0.8176243501984022,
+                -0.43619785011658785,
+                0.0,
+                0.5336656926158823,
+                0.5757520490303448,
+                0.6194437073392304,
+                0.0,
+                0.6215693497876462,
+                0.8338314092229714,
+                0.7404915362680061,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Oil Jug"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.28842260978395734,
+                "ymag": 0.22287201665123976,
+                "zfar": 1.570968135340895,
+                "znear": 1.0063846987055594
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 66306,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                27543
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 27544,
+            "type": "VEC3",
+            "min": [
+                -0.11744282394647598,
+                -5.204170427930421e-18,
+                -0.05714999884366989
+            ],
+            "max": [
+                0.08254833519458771,
+                0.2921000123023987,
+                0.05714999884366989
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 27544,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "PlasticPolystyrene",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.4995053009015052,
+                    0.10363410210589573,
+                    0.0002615437658019616,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 265224,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 265224,
+            "byteLength": 330528,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 595752,
+            "byteLength": 330528,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Oil Jug.bin",
+            "byteLength": 926280
+        }
+    ]
+}

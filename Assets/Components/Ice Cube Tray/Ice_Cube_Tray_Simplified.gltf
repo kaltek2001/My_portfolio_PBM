@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Simplified",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.9881413645312505,
+                0.03753463318988383,
+                -0.14888853217632164,
+                0.0,
+                -0.14919036549075343,
+                0.46403934235797534,
+                -0.8731607661758019,
+                0.0,
+                0.03631636748153791,
+                0.885019005476876,
+                0.464136274597954,
+                0.0,
+                0.02703366373553228,
+                0.6715022936428752,
+                0.34549997274152683,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Ice Cube Tray"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.18031865546218492,
+                "ymag": 0.13933714285714288,
+                "zfar": 0.9759725835301338,
+                "znear": 0.6286037863562944
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 25596,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                12679
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 12680,
+            "type": "VEC3",
+            "min": [
+                -0.10477499663829803,
+                -9.140088308745299e-19,
+                -0.04762500151991844
+            ],
+            "max": [
+                0.10477499663829803,
+                0.02539999969303608,
+                0.04762500151991844
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 12680,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -0.9998477101325989
+            ],
+            "max": [
+                1.0,
+                1.0,
+                0.9998477101325989
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "PlasticPolystyrene",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 102384,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 102384,
+            "byteLength": 152160,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 254544,
+            "byteLength": 152160,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Ice Cube Tray.bin",
+            "byteLength": 406704
+        }
+    ]
+}

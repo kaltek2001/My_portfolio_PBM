@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.7557251697175308,
+                0.0,
+                -0.6548888973371051,
+                0.0,
+                -0.37741692897244733,
+                0.8172334213031031,
+                -0.4355295590774885,
+                0.0,
+                0.535197094144219,
+                0.5763068064019589,
+                0.6176038660131259,
+                0.0,
+                0.14474742868849153,
+                0.15586580957758284,
+                0.15115985973969193,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Support Bracket - Base"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.06171305793750601,
+                "ymag": 0.04768736295170919,
+                "zfar": 0.3815359388948378,
+                "znear": 0.2149164884996333
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1596,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                707
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 708,
+            "type": "VEC3",
+            "min": [
+                -0.05079999938607216,
+                -0.00317499996162951,
+                -0.038100000470876694
+            ],
+            "max": [
+                0.05079999938607216,
+                0.00317499996162951,
+                0.00634999992325902
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 708,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 6384,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6384,
+            "byteLength": 8496,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 14880,
+            "byteLength": 8496,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Support Bracket - Base.bin",
+            "byteLength": 23376
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.991532675996835,
+                0.09500038871666001,
+                -0.08853179414334089,
+                0.0,
+                0.12378811147631161,
+                -0.4854855064569158,
+                0.8654364947686226,
+                0.0,
+                0.039235900495383585,
+                -0.8690677471658671,
+                -0.49313466208365536,
+                0.0,
+                0.03621818726549539,
+                -0.23962079413341525,
+                -0.13596790322566807,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Knukle Fitting"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.06668070870321036,
+                "ymag": 0.051526002179753456,
+                "zfar": 0.36267260706607074,
+                "znear": 0.23224617306015302
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 4434,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1925
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1926,
+            "type": "VEC3",
+            "min": [
+                -1.4444474582904269e-34,
+                -0.02494952082633972,
+                -0.02494952082633972
+            ],
+            "max": [
+                0.05079999938607216,
+                0.02494952082633972,
+                0.02494952082633972
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1926,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 17736,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 17736,
+            "byteLength": 23112,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 40848,
+            "byteLength": 23112,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Knukle Fitting.bin",
+            "byteLength": 63960
+        }
+    ]
+}

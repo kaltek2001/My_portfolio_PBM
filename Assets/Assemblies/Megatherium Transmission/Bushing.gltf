@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.4426330998494365,
+                0.7798598914432542,
+                0.44259969344295164,
+                0.0,
+                -0.7069580661153211,
+                0.00013849374827609726,
+                -0.7072554514275355,
+                0.0,
+                -0.5516214568634583,
+                -0.6259540961904456,
+                0.5512669387785178,
+                0.0,
+                -0.09648830219194156,
+                -0.09679038917907314,
+                0.09642629073882025,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Bushing"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.04167099850696399,
+                "ymag": 0.032200317028108535,
+                "zfar": 0.23448588168864168,
+                "znear": 0.14513346146400535
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1536,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                577
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 578,
+            "type": "VEC3",
+            "min": [
+                -0.019013868644833565,
+                -1.6102443743161522e-17,
+                -0.019040964543819427
+            ],
+            "max": [
+                0.019050000235438347,
+                0.02539999969303608,
+                0.019040964543819427
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 578,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "polishedbronze",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.3488648621678924,
+                    0.1390224578539915,
+                    0.028991187497512977,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.07000000476837158
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 6144,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6144,
+            "byteLength": 6936,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 13080,
+            "byteLength": 6936,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Bushing.bin",
+            "byteLength": 20016
+        }
+    ]
+}

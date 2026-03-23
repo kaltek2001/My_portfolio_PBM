@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.02143971594885201,
+                -0.7449652540591875,
+                -0.666758658604868,
+                0.0,
+                0.9804630448596676,
+                0.14609925992105532,
+                -0.13170886042719215,
+                0.0,
+                0.19553147123811598,
+                -0.6509084240467704,
+                0.7335432279425715,
+                0.0,
+                0.046209654605677705,
+                -0.10098160719784621,
+                0.09538652932452095,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Support Bracket - Web"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.03750261697968928,
+                "ymag": 0.028979294938850802,
+                "zfar": 0.20417860543274052,
+                "znear": 0.13061994669700772
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1812,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                715
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 716,
+            "type": "VEC3",
+            "min": [
+                -6.938893903907228e-18,
+                -0.00317499996162951,
+                -0.03683000057935715
+            ],
+            "max": [
+                0.03175000101327896,
+                0.00317499996162951,
+                0.0
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 716,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 7248,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 7248,
+            "byteLength": 8592,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 15840,
+            "byteLength": 8592,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Support Bracket - Web.bin",
+            "byteLength": 24432
+        }
+    ]
+}

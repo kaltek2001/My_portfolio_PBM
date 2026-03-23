@@ -221,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px dashed rgba(154,164,255,0.3);
 }
 
-/* ---------- Glassmorphism Panel (Upgraded) ---------- */
+/* ---------- REFINED ABOUT ME PANEL ---------- */
 .right-area {
   flex: 0.8;
   display: flex;
@@ -253,37 +253,74 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--secondary);
 }
 
+/* ----- Headings ----- */
 .right-panel h2 {
-  margin-bottom: 30px;
-  font-size: 2.4rem;
-  color: var(--primary);
-  text-align: center;
-  position: relative;
-  padding-bottom: 15px;
-  font-family: var(--font-heading);
+  margin-bottom: 1.2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--primary);
+  text-align: left;                 /* left alignment feels more professional */
+  position: relative;
+  padding-bottom: 0.75rem;
 }
 
-.right-panel h2:after {
+.right-panel h2::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 25%;
-  width: 50%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary), transparent);
+  border-radius: 2px;
 }
 
-.right-panel p {
+.right-panel h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0.5rem 0 0.25rem;
+  line-height: 1.3;
+  text-transform: none;              /* more readable than all-caps */
+  letter-spacing: 0.5px;
+}
+
+.right-panel h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ----- Paragraphs (using your custom p1/p2 tags) ----- */
+.right-panel p1,
+.right-panel p2 {
+  display: block;                    /* ensure block behaviour */
+  font-size: 1.1rem;
   line-height: 1.8;
-  font-size: 1.15rem;
   color: var(--text-primary);
-  margin-bottom: 25px;
-  text-align: justify;
-  padding: 15px;
-  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  padding: 1rem 1.2rem;
   background: rgba(22, 26, 58, 0.3);
-  border-left: 3px solid var(--secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.right-panel p1:hover,
+.right-panel p2:hover {
+  background: rgba(32, 36, 68, 0.5);
+  border-left-color: var(--primary);
+}
+
+/* optional: make second paragraph stand out subtly */
+.right-panel p2 {
+  border-left-color: var(--primary);
+  font-style: italic;
+  color: #e0e4ff;
 }
 
 /* ---------- Star Field (Enhanced) ---------- */
@@ -523,6 +560,21 @@ h1, h2, h3, h4, h5, h6 {
   }
   .right-panel {
     padding: 20px;
+  }
+  /* responsive heading sizes */
+  .right-panel h2 {
+    font-size: 1.8rem;
+  }
+  .right-panel h3 {
+    font-size: 1.4rem;
+  }
+  .right-panel h4 {
+    font-size: 1.1rem;
+  }
+  .right-panel p1,
+  .right-panel p2 {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
   }
 }
 

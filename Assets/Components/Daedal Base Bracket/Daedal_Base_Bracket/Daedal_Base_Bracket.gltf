@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.7592165056149758,
+                1.5419052239700898e-16,
+                -0.6508381500817122,
+                0.0,
+                -0.37949718486781675,
+                0.8124076005008042,
+                -0.442691514856483,
+                0.0,
+                0.5287458598222661,
+                0.5830899507353267,
+                0.6167932595872679,
+                0.0,
+                0.5947113292723533,
+                0.6199929306701217,
+                0.5752248239324992,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Daedal Base Bracket"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.22273440026315483,
+                "ymag": 0.17211294565789237,
+                "zfar": 1.2426520737273457,
+                "znear": 0.7775823047678915
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 6132,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                3055
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3056,
+            "type": "VEC3",
+            "min": [
+                0.0,
+                -0.01269999984651804,
+                -0.07620000094175339
+            ],
+            "max": [
+                0.20319999754428864,
+                0.16509999334812164,
+                0.07620000094175339
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 3056,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishstainlesssteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    0.8912620430916338,
+                    0.8122415004576116,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 24528,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 24528,
+            "byteLength": 36672,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 61200,
+            "byteLength": 36672,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Daedal Base Bracket.bin",
+            "byteLength": 97872
+        }
+    ]
+}

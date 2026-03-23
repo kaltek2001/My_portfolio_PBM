@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.9665496580108531,
+                0.11316748079999928,
+                -0.23016272480244163,
+                0.0,
+                -0.025396387319718203,
+                0.8507527645986956,
+                0.5249521473799141,
+                0.0,
+                0.2552190864927808,
+                0.5132376202277636,
+                -0.8194207485002635,
+                0.0,
+                0.1938462889513433,
+                0.4076194671939229,
+                -0.6520109635216127,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Triaxial Electrode Support"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.18517170491893467,
+                "ymag": 0.1430872265282677,
+                "zfar": 1.066837015882307,
+                "znear": 0.6449084052779277
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 21186,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                8013
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 8014,
+            "type": "VEC3",
+            "min": [
+                -0.12270809710025787,
+                -0.06413500010967255,
+                -0.04833979532122612
+            ],
+            "max": [
+                0.10942789912223816,
+                0.07302500307559967,
+                0.03175000101327896
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 8014,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "defaultplastic",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7817506899134391,
+                    0.7817506899134391,
+                    0.7817506899134391,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.1899999998509884
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 84744,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 84744,
+            "byteLength": 96168,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 180912,
+            "byteLength": 96168,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Triaxial Electrode Support.bin",
+            "byteLength": 277080
+        }
+    ]
+}

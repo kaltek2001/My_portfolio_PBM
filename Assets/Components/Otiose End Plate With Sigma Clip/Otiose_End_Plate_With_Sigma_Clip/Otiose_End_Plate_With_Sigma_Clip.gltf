@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.6900705273537476,
+                -0.001075107401181108,
+                0.7237413290822878,
+                0.0,
+                0.2584743779593386,
+                0.934417456024821,
+                -0.2450612450279208,
+                0.0,
+                -0.676013064382822,
+                0.35617813242839264,
+                0.6450918343643554,
+                0.0,
+                -0.3770257840437005,
+                0.21024037186482153,
+                0.3807767372439371,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Otiose End Plate With Sigma Clip"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.1422687633872952,
+                "ymag": 0.10993495352654627,
+                "zfar": 0.7797775299334675,
+                "znear": 0.49551246853160996
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 38742,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                15499
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 15500,
+            "type": "VEC3",
+            "min": [
+                -0.012191999703645706,
+                -0.06642100214958191,
+                -0.05828793719410896
+            ],
+            "max": [
+                0.056197501718997955,
+                0.06642100214958191,
+                0.05828793719410896
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 15500,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 154968,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 154968,
+            "byteLength": 186000,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 340968,
+            "byteLength": 186000,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Otiose End Plate With Sigma Clip.bin",
+            "byteLength": 526968
+        }
+    ]
+}

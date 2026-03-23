@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default<As Machined>",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.6515888368787518,
+                2.7755575615628914e-17,
+                0.7585723351500471,
+                0.0,
+                0.43696853076125675,
+                0.8174210202617027,
+                -0.3753416826821472,
+                0.0,
+                -0.6200729721406538,
+                0.5760406892176255,
+                0.5326224118325654,
+                0.0,
+                -0.1978279676633688,
+                0.1712433013949154,
+                0.17947303110486557,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Front Holder"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.08159422301417116,
+                "ymag": 0.06305008142004134,
+                "zfar": 0.44250298536547744,
+                "znear": 0.2841901497953633
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1962,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                769
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 770,
+            "type": "VEC3",
+            "min": [
+                -0.009525000117719173,
+                -0.06667499989271164,
+                -0.020942235365509987
+            ],
+            "max": [
+                0.03175000101327896,
+                0.020955000072717667,
+                0.020942235365509987
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 770,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 7848,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 7848,
+            "byteLength": 9240,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 17088,
+            "byteLength": 9240,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Front Holder.bin",
+            "byteLength": 26328
+        }
+    ]
+}

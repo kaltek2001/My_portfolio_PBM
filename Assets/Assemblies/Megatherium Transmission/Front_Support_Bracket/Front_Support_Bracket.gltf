@@ -1,0 +1,399 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.9967301824714379,
+                0.0,
+                0.08080187714684792,
+                0.0,
+                0.056559323175955196,
+                0.7141669924576594,
+                -0.6976865699193725,
+                0.0,
+                -0.057706033586897645,
+                0.6999753616263801,
+                0.7118317967074008,
+                0.0,
+                0.5486242227362862,
+                1.1753881337380303,
+                1.604973116508821,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "children": [
+                2,
+                3,
+                4
+            ],
+            "name": "Front Support Bracket"
+        },
+        {
+            "rotation": [
+                0.7071068286895752,
+                1.8397223087757157e-17,
+                0.0,
+                0.7071068286895752
+            ],
+            "translation": [
+                0.5615827441215515,
+                0.845941424369812,
+                1.308045744895935
+            ],
+            "mesh": 0,
+            "name": "Support Bracket - Web-1"
+        },
+        {
+            "rotation": [
+                1.8397223087757157e-17,
+                -0.7071068286895752,
+                0.0,
+                0.7071068286895752
+            ],
+            "translation": [
+                0.5615827441215515,
+                0.8427664041519165,
+                1.308045744895935
+            ],
+            "mesh": 1,
+            "name": "Support Bracket - Base-1"
+        },
+        {
+            "translation": [
+                0.5552327036857605,
+                0.9062663912773132,
+                1.308045744895935
+            ],
+            "mesh": 2,
+            "name": "Front Holder-1"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.09806704269307526,
+                "ymag": 0.07577907844464905,
+                "zfar": 0.5675741137485717,
+                "znear": 0.3419101161618003
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5
+                    },
+                    "indices": 3,
+                    "material": 1,
+                    "mode": 4
+                }
+            ]
+        },
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 7,
+                        "NORMAL": 8
+                    },
+                    "indices": 6,
+                    "material": 2,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1812,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                715
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 716,
+            "type": "VEC3",
+            "min": [
+                -6.938893903907228e-18,
+                -0.00317499996162951,
+                -0.03683000057935715
+            ],
+            "max": [
+                0.03175000101327896,
+                0.00317499996162951,
+                0.0
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 716,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1596,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                707
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 708,
+            "type": "VEC3",
+            "min": [
+                -0.05079999938607216,
+                -0.00317499996162951,
+                -0.038100000470876694
+            ],
+            "max": [
+                0.05079999938607216,
+                0.00317499996162951,
+                0.00634999992325902
+            ]
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 708,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 1962,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                769
+            ]
+        },
+        {
+            "bufferView": 7,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 770,
+            "type": "VEC3",
+            "min": [
+                -0.009525000117719173,
+                -0.06667499989271164,
+                -0.020942235365509987
+            ],
+            "max": [
+                0.03175000101327896,
+                0.020955000072717667,
+                0.020942235365509987
+            ]
+        },
+        {
+            "bufferView": 8,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 770,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        },
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        },
+        {
+            "name": "satinfinishaluminum",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.7299189080773666,
+                    0.8122415004576116,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 7248,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 7248,
+            "byteLength": 8592,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 15840,
+            "byteLength": 8592,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 1,
+            "byteOffset": 0,
+            "byteLength": 6384,
+            "target": 34963
+        },
+        {
+            "buffer": 1,
+            "byteOffset": 6384,
+            "byteLength": 8496,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 1,
+            "byteOffset": 14880,
+            "byteLength": 8496,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 2,
+            "byteOffset": 0,
+            "byteLength": 7848,
+            "target": 34963
+        },
+        {
+            "buffer": 2,
+            "byteOffset": 7848,
+            "byteLength": 9240,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 2,
+            "byteOffset": 17088,
+            "byteLength": 9240,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "0-1-Support Bracket - Web-1.bin",
+            "byteLength": 24432
+        },
+        {
+            "uri": "0-2-Support Bracket - Base-1.bin",
+            "byteLength": 23376
+        },
+        {
+            "uri": "0-3-Front Holder-1.bin",
+            "byteLength": 26328
+        }
+    ]
+}

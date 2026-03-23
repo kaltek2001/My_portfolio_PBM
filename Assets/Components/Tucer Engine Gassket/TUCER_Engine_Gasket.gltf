@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.9968866730666585,
+                6.938893903907228e-18,
+                0.07884770803320404,
+                0.0,
+                0.05566675623755825,
+                0.7082083638704293,
+                -0.7038054600484128,
+                0.0,
+                -0.05584060630112874,
+                0.7060034796967856,
+                0.7060034796967738,
+                0.0,
+                0.06592971355449959,
+                1.4946817223146596,
+                1.247031722314644,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "TUCER Engine Gasket"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.4629393090569566,
+                "ymag": 0.3577258297258301,
+                "zfar": 3.1272116587763774,
+                "znear": 1.6120479003000856
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 3012,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                1321
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1322,
+            "type": "VEC3",
+            "min": [
+                -0.20299480855464935,
+                -0.01269999984651804,
+                -0.5711441040039063
+            ],
+            "max": [
+                0.5714604258537292,
+                0.01269999984651804,
+                0.07620000094175339
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1322,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "polishedsteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.5731588967040465,
+                    0.5417983787732485,
+                    0.5113978427838181,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.13999999761581422
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 12048,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 12048,
+            "byteLength": 15864,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 27912,
+            "byteLength": 15864,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "TUCER Engine Gasket.bin",
+            "byteLength": 43776
+        }
+    ]
+}

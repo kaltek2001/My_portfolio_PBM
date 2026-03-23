@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                0.9929915537216847,
+                0.11753756599846052,
+                -0.0123569744093211,
+                0.0,
+                -0.11770963450107555,
+                0.9929456037983424,
+                -0.014264285582138004,
+                0.0,
+                0.010593214007952566,
+                0.015618850044197366,
+                0.9998219018106568,
+                0.0,
+                0.00637631811866235,
+                0.009401373035099043,
+                0.6018175884260031,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Sheave"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.1418208406820102,
+                "ymag": 0.1095888314360988,
+                "zfar": 0.8179197951205299,
+                "znear": 0.49392728765160715
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 11352,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                4221
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4222,
+            "type": "VEC3",
+            "min": [
+                -0.00711200013756752,
+                -0.076166532933712,
+                -0.07606617361307144
+            ],
+            "max": [
+                0.00711200013756752,
+                0.076166532933712,
+                0.07620000094175339
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4222,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "polishedcarbonsteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.5731588967040465,
+                    0.5417983787732485,
+                    0.5113978427838181,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.13999999761581422
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 45408,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 45408,
+            "byteLength": 50664,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 96072,
+            "byteLength": 50664,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Sheave.bin",
+            "byteLength": 146736
+        }
+    ]
+}

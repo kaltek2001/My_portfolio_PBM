@@ -1,0 +1,162 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.6518424617133483,
+                0.0,
+                -0.7583544060051886,
+                0.0,
+                -0.4368503832448155,
+                0.8174141543348111,
+                0.3754941317144163,
+                0.0,
+                0.6198896254708092,
+                0.5760504320744023,
+                -0.5328252546009381,
+                0.0,
+                0.023275414498661568,
+                0.025620289555192594,
+                -0.020026869929520172,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Set Screw"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.009061201665977849,
+                "ymag": 0.0070018376509828825,
+                "zfar": 0.04963942711423821,
+                "znear": 0.03155956770795301
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 25524,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                11613
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 11614,
+            "type": "VEC3",
+            "min": [
+                -0.00317499996162951,
+                -2.168404344971009e-19,
+                -0.003174996469169855
+            ],
+            "max": [
+                0.00317499996162951,
+                0.00793750025331974,
+                0.0031747878529131413
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 11614,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "satinfinishstainlesssteel",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    0.8912620430916338,
+                    0.8122415004576116,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.4000000059604645
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 102096,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 102096,
+            "byteLength": 139368,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 241464,
+            "byteLength": 139368,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Set Screw.bin",
+            "byteLength": 380832
+        }
+    ]
+}
