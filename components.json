@@ -9,7 +9,8 @@
       "Assets/Components/Angle Clip/Angle Clip 3.JPG",
       "Assets/Components/Angle Clip/Angle Clip 4.JPG",
       "Assets/Components/Angle Clip/Angle Clip 5.JPG",
-      "Assets/Components/Angle Clip/Angle Clip 6.JPG"
+      "Assets/Components/Angle Clip/Angle Clip 6.JPG",
+      "Assets/Components/Angle Clip/Angle Clip.JPG"
     ],
     "videos": [
       "Assets/Components/Angle Clip/Angle Clip.mp4"
@@ -22,6 +23,24 @@
     ]
   },
   {
+    "id": "angled-mount",
+    "title": "Angled Mount",
+    "thumbnail": "Assets/Components/Angled Mount/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Angled Mount/Angled Mount 3.JPG",
+      "Assets/Components/Angled Mount/Angled Mount 4.JPG",
+      "Assets/Components/Angled Mount/Angled Mount 5.JPG",
+      "Assets/Components/Angled Mount/Angled Mount.JPG"
+    ],
+    "videos": [],
+    "drawing": [
+      "Assets/Components/Angled Mount/Angled Mount.pdf"
+    ],
+    "model3d": [
+      "Assets/Components/Angled Mount/Angled_Mount.gltf"
+    ]
+  },
+  {
     "id": "control-bracket-casting",
     "title": "Control Bracket Casting",
     "thumbnail": "Assets/Components/Control Bracket Casting/Thumbnail.JPG",
@@ -31,7 +50,8 @@
       "Assets/Components/Control Bracket Casting/Control Bracket Casting 3.JPG",
       "Assets/Components/Control Bracket Casting/Control Bracket Casting 4.JPG",
       "Assets/Components/Control Bracket Casting/Control Bracket Casting 5.JPG",
-      "Assets/Components/Control Bracket Casting/Control Bracket Casting 6.JPG"
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting 6.JPG",
+      "Assets/Components/Control Bracket Casting/Control Bracket Casting.JPG"
     ],
     "videos": [],
     "drawing": [
@@ -39,6 +59,251 @@
     ],
     "model3d": [
       "Assets/Components/Control Bracket Casting/Control_Bracket_Casting.gltf"
+    ]
+  },
+  {
+    "id": "daedal-base-bracket",
+    "title": "Daedal Base Bracket",
+    "thumbnail": "Assets/Components/Daedal Base Bracket/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Daedal Base Bracket/Daedal Base Bracket 2.JPG",
+      "Assets/Components/Daedal Base Bracket/Daedal Base Bracket 3.JPG",
+      "Assets/Components/Daedal Base Bracket/Daedal Base Bracket 4.JPG",
+      "Assets/Components/Daedal Base Bracket/Daedal Base Bracket 5.JPG",
+      "Assets/Components/Daedal Base Bracket/Daedal Base Bracket.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Daedal Base Bracket/Daedal_Base_Bracket.gltf"
+    ]
+  },
+  {
+    "id": "extruded-base-plate",
+    "title": "Extruded Base Plate",
+    "thumbnail": "Assets/Components/Extruded Base Plate/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Extruded Base Plate/Extruded BasePlate 2.JPG",
+      "Assets/Components/Extruded Base Plate/Extruded BasePlate 3.JPG",
+      "Assets/Components/Extruded Base Plate/Extruded BasePlate 4.JPG",
+      "Assets/Components/Extruded Base Plate/Extruded BasePlate.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Extruded Base Plate/Extruded_BasePlate.gltf"
+    ]
+  },
+  {
+    "id": "ice-cube-tray",
+    "title": "Ice Cube Tray",
+    "thumbnail": "Assets/Components/Ice Cube Tray/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 2.JPG",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 3.JPG",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 4.JPG",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 5.JPG",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 6.JPG",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Ice Cube Tray/Ice_Cube_Tray.gltf",
+      "Assets/Components/Ice Cube Tray/Ice_Cube_Tray_Simplified.gltf"
+    ]
+  },
+  {
+    "id": "knukle-fitting",
+    "title": "Knukle Fitting",
+    "thumbnail": "Assets/Components/Knukle Fitting/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Knukle Fitting/Knukle Fitting 2.JPG",
+      "Assets/Components/Knukle Fitting/Knukle Fitting 3.JPG",
+      "Assets/Components/Knukle Fitting/Knukle Fitting 4.JPG",
+      "Assets/Components/Knukle Fitting/Knukle Fitting 5.JPG",
+      "Assets/Components/Knukle Fitting/Knukle Fitting.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Knukle Fitting/Knukle_Fitting.gltf"
+    ]
+  },
+  {
+    "id": "missile-gyro-support",
+    "title": "Missile Gyro Support",
+    "thumbnail": "Assets/Components/Missile Gyro Support/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 2.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 3.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 4.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 5.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 6.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support 7.JPG",
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support.JPG"
+    ],
+    "videos": [],
+    "drawing": [
+      "Assets/Components/Missile Gyro Support/Missile Gyro Support.pdf"
+    ],
+    "model3d": [
+      "Assets/Components/Missile Gyro Support/Missile_Gyro_Support.gltf"
+    ]
+  },
+  {
+    "id": "mount",
+    "title": "Mount",
+    "thumbnail": "",
+    "images": [],
+    "videos": [],
+    "drawing": [],
+    "model3d": []
+  },
+  {
+    "id": "oblique-support",
+    "title": "Oblique Support",
+    "thumbnail": "",
+    "images": [],
+    "videos": [],
+    "drawing": [],
+    "model3d": []
+  },
+  {
+    "id": "oil-jug",
+    "title": "Oil Jug",
+    "thumbnail": "Assets/Components/Oil Jug/Oil Jug 2.JPG",
+    "images": [
+      "Assets/Components/Oil Jug/Oil Jug 2.JPG",
+      "Assets/Components/Oil Jug/Oil Jug 3.JPG",
+      "Assets/Components/Oil Jug/Oil Jug 4.JPG",
+      "Assets/Components/Oil Jug/Oil Jug 5.JPG",
+      "Assets/Components/Oil Jug/Oil Jug 6.JPG",
+      "Assets/Components/Oil Jug/Oil Jug.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Oil Jug/oil_Jug.gltf"
+    ]
+  },
+  {
+    "id": "otiose-end-plate-with-sigma-clip",
+    "title": "Otiose End Plate With Sigma Clip",
+    "thumbnail": "Assets/Components/Otiose End Plate With Sigma Clip/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip 2.JPG",
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip 3.JPG",
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip 4.JPG",
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip 5.JPG",
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip 6.JPG",
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose End Plate With Sigma Clip.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Otiose End Plate With Sigma Clip/Otiose_End_Plate_With_Sigma_Clip.gltf"
+    ]
+  },
+  {
+    "id": "serling-connecting-rod",
+    "title": "Serling Connecting Rod",
+    "thumbnail": "Assets/Components/Serling Connecting Rod/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 2.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 3.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 4.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 5.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 6.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod 7.JPG",
+      "Assets/Components/Serling Connecting Rod/Serling Connecting Rod.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Serling Connecting Rod/Serling_Connecting_Rod.gltf"
+    ]
+  },
+  {
+    "id": "sheave",
+    "title": "Sheave",
+    "thumbnail": "Assets/Components/Sheave/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Sheave/Sheave 2.JPG",
+      "Assets/Components/Sheave/Sheave 3.JPG",
+      "Assets/Components/Sheave/Sheave.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Sheave/Sheave.gltf"
+    ]
+  },
+  {
+    "id": "triaxial-electrode-support",
+    "title": "Triaxial Electrode Support",
+    "thumbnail": "Assets/Components/Triaxial Electrode Support/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Triaxial Electrode Support/Triaxial Electrode Support 2.JPG",
+      "Assets/Components/Triaxial Electrode Support/Triaxial Electrode Support 3.JPG",
+      "Assets/Components/Triaxial Electrode Support/Triaxial Electrode Support 4.JPG",
+      "Assets/Components/Triaxial Electrode Support/Triaxial Electrode Support 5.JPG",
+      "Assets/Components/Triaxial Electrode Support/Triaxial Electrode Support.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Triaxial Electrode Support/Triaxial_Electrode_Support.gltf"
+    ]
+  },
+  {
+    "id": "tucer-engine-gassket",
+    "title": "Tucer Engine Gassket",
+    "thumbnail": "Assets/Components/Tucer Engine Gassket/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Tucer Engine Gassket/TUCER Engine Gasket 2.JPG",
+      "Assets/Components/Tucer Engine Gassket/TUCER Engine Gasket 3.JPG",
+      "Assets/Components/Tucer Engine Gassket/TUCER Engine Gasket.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Tucer Engine Gassket/TUCER_Engine_Gasket.gltf"
+    ]
+  },
+  {
+    "id": "vilis-casting",
+    "title": "Vilis Casting",
+    "thumbnail": "Assets/Components/Vilis Casting/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Vilis Casting/VILIS CASTING 2.JPG",
+      "Assets/Components/Vilis Casting/VILIS CASTING 3.JPG",
+      "Assets/Components/Vilis Casting/VILIS CASTING 4.JPG",
+      "Assets/Components/Vilis Casting/VILIS CASTING 5.JPG",
+      "Assets/Components/Vilis Casting/VILIS CASTING 6.JPG",
+      "Assets/Components/Vilis Casting/VILIS CASTING.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Vilis Casting/VILIS_CASTING.gltf"
+    ]
+  },
+  {
+    "id": "wheel-hub",
+    "title": "Wheel Hub",
+    "thumbnail": "Assets/Components/Wheel Hub/Thumbnail.JPG",
+    "images": [
+      "Assets/Components/Wheel Hub/Wheel Hub 2.JPG",
+      "Assets/Components/Wheel Hub/Wheel Hub 3.JPG",
+      "Assets/Components/Wheel Hub/Wheel Hub 4.JPG",
+      "Assets/Components/Wheel Hub/Wheel Hub 5.JPG",
+      "Assets/Components/Wheel Hub/Wheel Hub.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Components/Wheel Hub/Wheel_Hub.gltf"
     ]
   }
 ]

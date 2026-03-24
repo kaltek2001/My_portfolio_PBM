@@ -27,5 +27,50 @@
       "Assets/Assemblies/Geneva Wheel/Wheel.gltf",
       "Assets/Assemblies/Geneva Wheel/Whiz_nut.gltf"
     ]
+  },
+  {
+    "id": "megatherium-transmission",
+    "title": "Megatherium Transmission",
+    "thumbnail": "Assets/Assemblies/Megatherium Transmission/Base Plate.JPG",
+    "images": [
+      "Assets/Assemblies/Megatherium Transmission/Base Plate.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Bushing.JPG",
+      "Assets/Assemblies/Megatherium Transmission/End Cap.JPG",
+      "Assets/Assemblies/Megatherium Transmission/End Holder.JPG",
+      "Assets/Assemblies/Megatherium Transmission/End Support Bracket.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Front Holder.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Front Support Bracket.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Handle.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Key.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Megatherium Transmission 2.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Megatherium Transmission.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Pulley.JPG",
+      "Assets/Assemblies/Megatherium Transmission/SHCS.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Set Screw.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Shaft.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Support Bracket - Base.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Support Bracket - Web.JPG",
+      "Assets/Assemblies/Megatherium Transmission/Transmission Gear.JPG"
+    ],
+    "videos": [],
+    "drawing": [],
+    "model3d": [
+      "Assets/Assemblies/Megatherium Transmission/Base_Plate.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Bushing.gltf",
+      "Assets/Assemblies/Megatherium Transmission/End_Cap.gltf",
+      "Assets/Assemblies/Megatherium Transmission/End_Holder.gltf",
+      "Assets/Assemblies/Megatherium Transmission/End_Support_Bracket.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Front_Holder.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Front_Support_Bracket.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Handle.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Key.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Pulley.gltf",
+      "Assets/Assemblies/Megatherium Transmission/SHCS.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Set_Screw.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Shaft.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Support_Bracket_-_Base.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Support_Bracket_-_Web.gltf",
+      "Assets/Assemblies/Megatherium Transmission/Transmission_Gear.gltf"
+    ]
   }
 ]
