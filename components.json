@@ -107,7 +107,10 @@
       "Assets/Components/Ice Cube Tray/Ice Cube Tray.JPG"
     ],
     "videos": [],
-    "drawing": [],
+    "drawing": [
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray 2.PDF",
+      "Assets/Components/Ice Cube Tray/Ice Cube Tray.pdf"
+    ],
     "model3d": [
       "Assets/Components/Ice Cube Tray/Ice_Cube_Tray.gltf",
       "Assets/Components/Ice Cube Tray/Ice_Cube_Tray_Simplified.gltf"
@@ -154,11 +157,22 @@
   {
     "id": "mount",
     "title": "Mount",
-    "thumbnail": "",
-    "images": [],
+    "thumbnail": "Assets/Components/Mount/Mount 1.JPG",
+    "images": [
+      "Assets/Components/Mount/Mount 1.JPG",
+      "Assets/Components/Mount/Mount 2.JPG",
+      "Assets/Components/Mount/Mount 3.JPG",
+      "Assets/Components/Mount/Mount 4.JPG"
+    ],
     "videos": [],
-    "drawing": [],
-    "model3d": []
+    "drawing": [
+      "Assets/Components/Mount/Mount 2.PDF",
+      "Assets/Components/Mount/Mount.pdf"
+    ],
+    "model3d": [
+      "Assets/Components/Mount/Mount.gltf",
+      "Assets/Components/Mount/Mount_2.gltf"
+    ]
   },
   {
     "id": "oblique-support",
@@ -234,7 +248,9 @@
       "Assets/Components/Sheave/Sheave.JPG"
     ],
     "videos": [],
-    "drawing": [],
+    "drawing": [
+      "Assets/Components/Sheave/Sheave.pdf"
+    ],
     "model3d": [
       "Assets/Components/Sheave/Sheave.gltf"
     ]
@@ -301,7 +317,10 @@
       "Assets/Components/Wheel Hub/Wheel Hub.JPG"
     ],
     "videos": [],
-    "drawing": [],
+    "drawing": [
+      "Assets/Components/Wheel Hub/Wheel Hub 2.PDF",
+      "Assets/Components/Wheel Hub/Wheel Hub.pdf"
+    ],
     "model3d": [
       "Assets/Components/Wheel Hub/Wheel_Hub.gltf"
     ]

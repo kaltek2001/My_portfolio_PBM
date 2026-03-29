@@ -1,0 +1,230 @@
+{
+    "asset": {
+        "generator": "SOLIDWORKSGLTF",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Default",
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "matrix": [
+                -0.8389285181995205,
+                0.5442407700741975,
+                -0.0009620502073455232,
+                0.0,
+                0.5442326139816771,
+                0.8389234939615241,
+                0.004270030217606052,
+                0.0,
+                0.0031310110551827264,
+                0.0030586710239981535,
+                -0.9999904206047874,
+                0.0,
+                0.002925646016356559,
+                0.023495550814577153,
+                -0.9344004025794699,
+                1.0
+            ],
+            "camera": 0,
+            "name": "current camera"
+        },
+        {
+            "mesh": 0,
+            "name": "Mount"
+        }
+    ],
+    "cameras": [
+        {
+            "type": "orthographic",
+            "orthographic": {
+                "xmag": 0.16708001847805973,
+                "ymag": 0.12910728700577342,
+                "zfar": 1.1980873213077898,
+                "znear": 0.8025703698300435
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "indices": 0,
+                    "material": 0,
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5
+                    },
+                    "indices": 3,
+                    "material": 1,
+                    "mode": 4
+                }
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 97770,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                40247
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 40248,
+            "type": "VEC3",
+            "min": [
+                -0.0920548066496849,
+                0.0,
+                -0.09207499772310257
+            ],
+            "max": [
+                0.0920548066496849,
+                0.04127499833703041,
+                0.09199423342943192
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 40248,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 391080,
+            "componentType": 5125,
+            "count": 720,
+            "type": "SCALAR",
+            "min": [
+                0
+            ],
+            "max": [
+                249
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 482976,
+            "componentType": 5126,
+            "count": 250,
+            "type": "VEC3",
+            "min": [
+                -0.07875269651412964,
+                0.001142999972216785,
+                -0.07502320408821106
+            ],
+            "max": [
+                0.06419979780912399,
+                0.011442700400948524,
+                0.07502320408821106
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 482976,
+            "componentType": 5126,
+            "count": 250,
+            "type": "VEC3",
+            "min": [
+                -1.0,
+                0.0,
+                -1.0
+            ],
+            "max": [
+                1.0,
+                0.0,
+                1.0
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "mattezinc",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.666116986492675,
+                    0.6800203592563004,
+                    0.666116986492675,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 0.5
+            }
+        },
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0
+            }
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 393960,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 393960,
+            "byteLength": 485976,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 879936,
+            "byteLength": 485976,
+            "byteStride": 12,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "Mount.bin",
+            "byteLength": 1365912
+        }
+    ]
+}
